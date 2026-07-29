@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 900">
+  <rect width="1200" height="900" fill="#f6f0e8"/>
+  <rect x="100" y="100" width="1000" height="700" rx="56" fill="#68725a" fill-opacity=".22"/>
+  <text x="180" y="760" fill="#23211f" font-family="Arial, sans-serif" font-size="38">Gallery placeholder</text>
+</svg>

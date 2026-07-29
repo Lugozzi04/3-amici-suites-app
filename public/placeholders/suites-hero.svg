@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 900" role="img" aria-label="Placeholder Suites">
+  <defs>
+    <linearGradient id="bg" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0%" stop-color="#fbf6ef"/>
+      <stop offset="100%" stop-color="#d9c6b1"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="900" fill="url(#bg)"/>
+  <rect x="120" y="120" width="640" height="520" rx="56" fill="#3b3430"/>
+  <rect x="190" y="190" width="350" height="40" rx="20" fill="#f7efe6" fill-opacity=".65"/>
+  <rect x="190" y="260" width="470" height="28" rx="14" fill="#f7efe6" fill-opacity=".35"/>
+  <rect x="190" y="320" width="410" height="28" rx="14" fill="#f7efe6" fill-opacity=".35"/>
+  <rect x="820" y="180" width="210" height="470" rx="44" fill="#78846a" fill-opacity=".24"/>
+  <text x="120" y="780" fill="#23211f" font-family="Georgia, serif" font-size="54">3 Amici Suites</text>
+</svg>

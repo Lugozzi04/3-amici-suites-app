@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 900" role="img" aria-label="Placeholder Arena">
+  <defs>
+    <linearGradient id="bg" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0%" stop-color="#f5efe7"/>
+      <stop offset="100%" stop-color="#cdb8a2"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="900" fill="url(#bg)"/>
+  <rect x="110" y="110" width="980" height="680" rx="56" fill="#23211f"/>
+  <rect x="190" y="180" width="500" height="44" rx="22" fill="#f6f0e8" fill-opacity=".6"/>
+  <rect x="190" y="280" width="820" height="300" rx="36" fill="#8a6d57" fill-opacity=".35"/>
+  <text x="190" y="760" fill="#f6f0e8" font-family="Georgia, serif" font-size="54">3 Amici all'Arena</text>
+</svg>
