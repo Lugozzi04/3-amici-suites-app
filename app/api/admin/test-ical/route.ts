@@ -11,7 +11,7 @@ export async function POST(request: Request) {
 
   const url = body.url.trim();
 
-  if (!url.startsWith("https://ical.booking.com/v1/export/t/") || !url.endsWith(".ics")) {
+  if (!url.startsWith("https://ical.booking.com/")) {
     return NextResponse.json(
       { message: "URL non valido: deve essere un link di esportazione Booking" },
       { status: 400 },

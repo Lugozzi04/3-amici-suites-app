@@ -389,29 +389,17 @@ body {
 }
 
 .availability-calendar .rdp-outside .rdp-day_button {
-  color: rgba(35, 33, 31, 0.28);
+  color: rgba(35, 33, 31, 0.38);
   background: transparent;
 }
 
-.availability-calendar
-  .rdp-outside:not(.rdp-disabled):not(.rdp-selected):not(.rdp-range_start):not(.rdp-range_end):not(.rdp-range_middle)
-  .rdp-day_button {
-  color: rgba(35, 33, 31, 0.9);
-  background: rgba(104, 114, 90, 0.08);
-  border-color: rgba(104, 114, 90, 0.08);
-  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.64);
-}
-
-.availability-calendar
-  .rdp-outside:not(.rdp-disabled):not(.rdp-selected):not(.rdp-range_start):not(.rdp-range_end):not(.rdp-range_middle)
-  .rdp-day_button:hover:not(:disabled) {
-  background: rgba(255, 255, 255, 0.94);
-}
+/* rdp-outside days: kept light per base rule above — no dark override */
 
 .availability-calendar .rdp-disabled .rdp-day_button {
-  color: rgba(35, 33, 31, 0.28);
-  background: rgba(255, 255, 255, 0.36);
+  color: rgba(35, 33, 31, 0.38);
+  background: rgba(255, 255, 255, 0.52);
   cursor: not-allowed;
+  border-color: rgba(35, 33, 31, 0.05);
 }
 
 .availability-calendar .rdp-today .rdp-day_button {
@@ -474,6 +462,17 @@ body {
   transition-delay: var(--reveal-delay, 0ms);
 }
 
+/* Flash glow animation for contact form when triggered from availability checker */
+@keyframes form-flash {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(168, 162, 140, 0); }
+  5%, 40% { box-shadow: 0 0 0 4px rgba(168, 162, 140, 0.4), 0 0 20px 2px rgba(168, 162, 140, 0.25); }
+}
+
+.form-flash {
+  animation: form-flash 7.5s ease-in-out;
+  border-radius: 2rem;
+}
+
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;
@@ -488,7 +487,8 @@ body {
 
   .animate-drift,
   .animate-float-soft,
-  .animate-sheen {
+  .animate-sheen,
+  .form-flash {
     animation: none;
   }
 }

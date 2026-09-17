@@ -27,8 +27,8 @@ export function buildPropertyInquiryMessage(propertyName: string) {
   return [
     "Buongiorno,",
     "",
-    `sono interessato a prenotare ${propertyName}.`,
-    "Vorrei ricevere informazioni su disponibilità, caratteristiche della soluzione e modalità di soggiorno.",
+    `sono interessato a prenotare ${propertyName} per NUMERO persone.`,
+    "Vorrei ricevere informazioni su disponibilità.",
     "Resto in attesa di un vostro gentile riscontro.",
   ].join("\n");
 }
@@ -44,10 +44,15 @@ export function buildAvailabilityInquiryMessage(args: {
       ? `dal ${formatItalianDate(args.checkIn)} al ${formatItalianDate(args.checkOut)}`
       : "per le date selezionate";
 
+  const target =
+    args.roomName === args.propertyName
+      ? args.propertyName
+      : `${args.roomName} presso ${args.propertyName}`;
+
   return [
     "Buongiorno,",
     "",
-    `sono interessato a prenotare ${args.roomName} presso ${args.propertyName}.`,
+    `sono interessato a prenotare ${target} per NUMERO persone.`,
     `Ho verificato la disponibilità per ${stayPeriod} e desidero ricevere maggiori informazioni.`,
     "Resto a disposizione per eventuali dettagli e conferme.",
   ].join("\n");

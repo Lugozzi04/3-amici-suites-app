@@ -1,0 +1,471 @@
+{
+  "site": {
+    "motto": "Vivez Vérone comme un local",
+    "name": "3 Amici Suites",
+    "tagline": "Hospitalité boutique à Vérone"
+  },
+  "homeSections": {
+    "strutture": "Nos hébergements",
+    "servizi": "Services",
+    "verona": "Vérone",
+    "contattoFinale": "Contact final"
+  },
+  "nav": {
+    "home": "Accueil",
+    "strutture": "Hébergements",
+    "verona": "Vérone",
+    "chiSiamo": "Qui sommes-nous",
+    "contatti": "Contact"
+  },
+  "home": {
+    "title": "Quatre hébergements pour rendre votre Vérone inoubliable",
+    "subtitle": "3 Amici Suites propose quatre hébergements neufs, élégants et accueillants, avec une attention maximale au client pour offrir le meilleur séjour possible.",
+    "stats": {
+      "years": {
+        "value": "8+",
+        "label": "ans d'expérience"
+      },
+      "rating": {
+        "value": "9.2+",
+        "label": "note moyenne"
+      },
+      "reviews": {
+        "value": "100%",
+        "label": "avis réels"
+      }
+    },
+    "highlights": {
+      "title": "Quatre hébergements pour voir et vivre Vérone comme un local avec tout le confort d'un voyage de luxe.",
+      "items": [
+        {
+          "title": "Hospitalité véronaise",
+          "description": "Assurée par des gens qui vivent la ville depuis toujours et sont prêts à vous la faire découvrir."
+        },
+        {
+          "title": "Emplacement central",
+          "description": "Tous les hébergements sont situés dans le centre historique, à quelques minutes de l'Arène."
+        },
+        {
+          "title": "Qualité certifiée",
+          "description": "Des centaines d'avis avec une note moyenne constamment supérieure à 9."
+        }
+      ]
+    },
+    "services": {
+      "title": "Tout ce dont vous avez besoin, sans complications.",
+      "subtitle": "Services de base que nous offrons toujours gratuitement dans chaque hébergement",
+      "items": [
+        "Wi-Fi fibre rapide",
+        "Climatisation",
+        "Nettoyage professionnel",
+        "Self check-in nocturne",
+        "Assistance clients 24h/24",
+        "Guide gratuit de Vérone"
+      ]
+    },
+    "gallery": {
+      "title": "Galerie",
+      "subtitle": "Découvrez ici un rapide aperçu de tous nos hébergements dans un magnifique mélange de photos réelles non retouchées."
+    },
+    "reviews": {
+      "title": "Avis",
+      "subtitle": "Une confiance construite au fil des ans qui reflète notre engagement à vous offrir le meilleur séjour.",
+      "stats": "Excellentes notes en années de travail :",
+      "statsDetail": "Après près d'une décennie de présence à Vérone, nous avons une note moyenne de 9,2 ou plus sur tous les hébergements sur booking.com et environ 5 étoiles sur 5 sur Google.",
+      "items": [
+        {
+          "value": "9.2+",
+          "label": "moyenne Booking"
+        },
+        {
+          "value": "5★",
+          "label": "moyenne Google"
+        },
+        {
+          "value": "100%",
+          "label": "avis réels"
+        }
+      ],
+      "testimonials": [
+        {
+          "quote": "Hospitalité irréprochable, espaces soignés et communication simple. Nous nous sommes immédiatement sentis à l'aise.",
+          "author": "Chiara, Italie"
+        },
+        {
+          "quote": "Excellent emplacement pour visiter Vérone et une propriété très agréable, avec des détails qui font la différence.",
+          "author": "Marco, Allemagne"
+        },
+        {
+          "quote": "Propreté, ordre et hospitalité authentique. Un séjour bien plus raffiné que ce à quoi nous nous attendions.",
+          "author": "Laura, Royaume-Uni"
+        }
+      ]
+    },
+    "whyUs": {
+      "title": "Pourquoi nous choisir",
+      "subtitle": "Une présence discrète, mais mémorable.",
+      "items": [
+        {
+          "title": "Nous réalisons vos souhaits",
+          "description": "Contactez-nous directement si vous souhaitez créer un forfait spécial pour une occasion spéciale ou organiser une expérience à Vérone ou dans les environs.",
+          "action": "Appelez-nous",
+          "href": "tel:+393****8767"
+        },
+        {
+          "title": "Découvrez quoi faire et visiter à Vérone",
+          "description": "Téléchargez notre guide gratuit de Vérone avec tous les itinéraires selon le nombre de jours de votre visite et découvrez tous les secrets de la ville.",
+          "action": "Télécharger le guide",
+          "href": "/downloads/guida-verona-fr.pdf"
+        },
+        {
+          "title": "Découvrez où manger ou vous amuser à Vérone",
+          "description": "Téléchargez notre liste de restaurants et d'établissements choisis pour toute occasion, sélectionnés par des personnes qui vivent la ville depuis toujours.",
+          "action": "Télécharger la liste",
+          "href": "/downloads/ristoranti-bar-fr.pdf"
+        }
+      ]
+    },
+    "contactFinal": {
+      "title": "Parlons-en rapidement et directement.",
+      "subtitle": "Pour informations, disponibilité ou assistance à la réservation, ou pour toute question.",
+      "buttons": {
+        "book": "Réserver",
+        "discover": "Découvrir les hébergements"
+      }
+    }
+  },
+  "strutture": {
+    "title": "Quatre espaces, une seule identité d'hospitalité.",
+    "subtitle": "Quatre hébergements différents pour répondre à tous les besoins.",
+    "compareTitle": "Comparez les hébergements en un coup d'œil.",
+    "compareSubtitle": "Les informations ci-dessous proviennent de la même source de données Booking et restent faciles à mettre à jour manuellement.",
+    "compareLabel": "Comparaison rapide",
+    "compareIdealePer": "Idéal pour",
+    "compareDotazioni": "Équipements",
+    "compareFallbackBestFor": "séjours flexibles",
+    "compareFallbackSourceNote": "Aperçu Booking, modifiable manuellement.",
+    "tags": {
+      "parcheggio": "Parking privé",
+      "centroStorico": "Centre historique",
+      "vista": "Vue sur monument historique",
+      "ariaCondizionata": "Climatisation",
+      "wifi": "Wi-Fi",
+      "cucina": "Cuisine"
+    },
+    "properties": {
+      "suites": {
+        "alt": "3 appartements climatisés au centre de Vérone avec de grands salons avec cuisine, à 2 minutes de l'Arène avec un style unique.",
+        "tags": "Appartements · Cuisine · Centre historique · 2 min de l'Arène",
+        "bestFor": "familles et groupes pour séjours moyens ou longs"
+      },
+      "teatro": {
+        "alt": "Appartement très central, pratique pour ceux qui veulent visiter Vérone à pied tout en se garant sur place, équipé de climatisation et d'un salon avec cuisine.",
+        "tags": "Appartement · Parking privé · Climatisation · Cuisine",
+        "bestFor": "Idéal pour les familles, les amis et les couples recherchant des séjours de 2 ou 3 nuits."
+      },
+      "castello": {
+        "alt": "Chambres élégantes avec vue unique au monde sur le château, la rivière et l'arche des Gavi. Toutes les chambres avec salle de bain privée et balcon.",
+        "tags": "Chambres · Centre historique · Vue sur le château · Salle de bain privée et balcon",
+        "bestFor": "Couples ou voyageurs recherchant la nature et des vues uniques."
+      },
+      "arena": {
+        "alt": "Chambres modernes et récemment rénovées dans un emplacement très central, dotées du meilleur confort.",
+        "tags": "Chambres · Centre historique · Récemment rénovées · Confort maximal",
+        "bestFor": "couples et séjours courts ou moyens en plein centre-ville"
+      }
+    },
+    "detail": {
+      "nonTrovata": "Hébergement introuvable",
+      "badgePrincipali": "Badges principaux",
+      "galleryDinamica": "Galerie dynamique",
+      "galleryTitle": "Photos réelles en rotation.",
+      "galleryNote": "La galerie puise dans un pool local d'images soignées et change automatiquement après quelques secondes.",
+      "dettagli": "Détails",
+      "dettagliTitle": "Une fiche claire, utile et prête à convertir.",
+      "dettagliDescription": "Les informations essentielles sont distillées de manière lisible, sans surcharge visuelle.",
+      "contesto": "Contexte",
+      "tipo": "Type",
+      "indirizzo": "Adresse",
+      "rating": "Note",
+      "recensioni": "Avis",
+      "recensioniNote": "Données d'avis et scores : aperçu Booking, mis à jour manuellement.",
+      "prenotazione": "Réservation",
+      "prenotazioneTitle": "Contact direct ou plateforme externe.",
+      "prenotazioneDescription": "Si vous souhaitez une réponse rapide ou une confirmation plus personnelle, écrivez-nous. Vous pouvez également continuer sur la page Booking de l'hébergement.",
+      "sintesi": "Résumé",
+      "idealePer": "Idéal pour",
+      "posizione": "Emplacement",
+      "notaFonte": "Note source"
+    }
+  },
+  "verona": {
+    "title": "Une ville à vivre au bon rythme.",
+    "subtitle": "Une courte sélection d'expériences utiles, conçue pour vous orienter vers des expériences uniques grâce à l'aide de ceux qui vivent Vérone depuis toujours.",
+    "experiences": [
+      {
+        "title": "Guide de Vérone",
+        "description": "Téléchargez notre guide gratuit de Vérone avec tous les itinéraires selon le nombre de jours de visite.",
+        "action": "Télécharger le guide",
+        "href": "/downloads/guida-verona-fr.pdf"
+      },
+      {
+        "title": "Valpolicella et vin",
+        "description": "Dégustations et collines proches, parfaites pour une demi-journée hors de la ville. Téléchargez notre guide des meilleurs domaines viticoles.",
+        "action": "Télécharger le guide des domaines",
+        "href": "/downloads/attivita-cantine-fr.pdf"
+      },
+      {
+        "title": "Restaurants et cuisine locale",
+        "description": "De la tradition véronaise aux propositions contemporaines : un point de départ solide pour votre séjour.",
+        "action": "Télécharger les suggestions",
+        "href": "/downloads/ristoranti-bar-fr.pdf"
+      },
+      {
+        "title": "Salons, événements et saison lyrique",
+        "description": "Un emplacement utile également pour ceux qui voyagent pour des événements, des concerts ou des rendez-vous professionnels.",
+        "action": "En savoir plus",
+        "href": "https://www.visitverona.it/fr/calendrier-evenements"
+      }
+    ]
+  },
+  "chiSiamo": {
+    "title": "Qui sommes-nous",
+    "subtitle": "Une hospitalité familiale qui permet une attention maximale au client.",
+    "story": {
+      "title": "Notre histoire",
+      "paragraph1": "3 Amici Suites est né du désir d'offrir l'hospitalité de manière simple, soignée et personnelle. Tout commence avec Pietro, Dario et Carlo qui héritent de l'ancien bureau de leur grand-père et décident de donner une nouvelle vie à son travail. C'est ainsi qu'est né notre premier hébergement : 3 Amici Suites.",
+      "paragraph2": "Au fil des ans, nous nous sommes de plus en plus agrandis grâce au bon travail accompli avec passion et sacrifice, comme notre grand-père l'aurait sûrement rêvé.",
+      "paragraph3": "Au fil des ans, notre idée de séjour allie confort, souci du détail et relation authentique avec Vérone. Nous ne promettons pas d'excès : nous préférons être concrets, fiables et présents."
+    },
+    "logo": {
+      "title": "L'histoire du logo",
+      "text": "Le logo a été créé par un artiste véronais qui a voulu représenter les 3 amis (en réalité les petits-fils) comme 3 arcs rappelant l'Arène de Vérone toute proche. Le design est simple et unique, comme votre expérience dans nos hébergements."
+    },
+    "videoUrl": "https://www.youtube.com/watch?v=oLQMg_oCdDw"
+  },
+  "contatti": {
+    "title": "Contact",
+    "subtitle": "Écrivez-nous directement, sans étapes inutiles, à prix réduits.",
+    "discount": "Tous les prix que vous voyez sont réduits de 10% par rapport aux prix que vous voyez sur Booking.com ou sur d'autres plateformes. Vous aurez toujours le meilleur prix ici !",
+    "checkAvailability": "Vérifiez la disponibilité et contactez-nous par téléphone, WhatsApp ou par email.",
+    "bookingSection": {
+      "title": "Réservation",
+      "text": "Si vous préférez, vous pouvez également réserver via des plateformes externes à un prix majoré. N'hésitez pas à nous contacter pour toute question."
+    },
+    "usefulData": "Informations utiles",
+    "map": {
+      "title": "Carte",
+      "description": "Quatre hébergements à Vérone, affichés sur une carte interactive au look sobre et premium.",
+      "structure": "Hébergement",
+      "openInGoogleMaps": "Ouvrir dans Google Maps"
+    },
+    "form": {
+      "prefillMessage": "Nous avons préparé un message de départ pour vous : vous pouvez le modifier avant de l'envoyer.",
+      "directMessage": "Écrivez-nous directement : nous répondons par email et pouvons vous orienter vers l'hébergement le plus adapté.",
+      "name": "Nom",
+      "email": "Email",
+      "phone": "Téléphone",
+      "message": "Message",
+      "placeholder": "Dites-nous ce dont vous avez besoin : hébergement, dates approximatives, nombre de personnes ou autres exigences.",
+      "sending": "Envoi en cours...",
+      "submit": "Envoyer la demande",
+      "orWriteUs": "Ou écrivez-nous directement",
+      "directContact": "Contact direct",
+      "directContactNote": "Si vous préférez, vous pouvez également nous écrire par email ou par téléphone. Le formulaire rend simplement le premier contact plus organisé et plus rapide.",
+      "optional": "(facultatif)",
+      "checkFields": "Vérifiez les champs indiqués et réessayez.",
+      "sendFailed": "Échec de l'envoi. Veuillez réessayer dans quelques minutes ou contactez-nous directement.",
+      "sendSuccess": "Message envoyé avec succès. Nous vous répondrons dans les plus brefs délais."
+    },
+    "availability": {
+      "title": "Disponibilité",
+      "updatingTitle": "Calendriers en cours de mise à jour",
+      "updatingDescription": "Les calendriers Booking sont en cours de mise à jour. La vérification de disponibilité en temps réel sera de retour sous peu.",
+      "whatHappened": "⚠️ Que s'est-il passé ?",
+      "whatHappenedDesc": "Les liens de synchronisation avec Booking.com doivent être renouvelés périodiquement. Notre équipe a été informée et met à jour les connexions.",
+      "whatHappenedNote": "En attendant, vous pouvez nous contacter directement via le formulaire ci-dessous pour vérifier la disponibilité des hébergements.",
+      "autoRestore": "La vérification automatique reprendra automatiquement une fois les calendriers mis à jour.",
+      "checker": {
+        "eyebrow": "Vérifier la disponibilité",
+        "heading": "Vérifier la disponibilité",
+        "description": "Choisissez l'hébergement et les dates : nous vérifions les calendriers Booking connectés et vous montrons uniquement les options réellement disponibles.",
+        "outdatedFeedsTitle": "⚠️ Hébergements avec calendriers non mis à jour :",
+        "outdatedFeedsNote": "Pour vérifier la disponibilité ou réserver ces hébergements, utilisez le formulaire de contact ci-dessous.",
+        "structureLabel": "Hébergement",
+        "guestCountLabel": "Nombre de personnes",
+        "person": "personne",
+        "people": "personnes",
+        "verify": "Vérifier",
+        "checking": "Vérification en cours...",
+        "result": "Résultat",
+        "dateFrom": "Du",
+        "dateTo": "au",
+        "verificationError": "Impossible de vérifier la disponibilité pour cet hébergement. Les calendriers Booking ne sont peut-être plus synchronisés. Contactez-nous pour obtenir de l'aide.",
+        "availabilityUnavailable": "La disponibilité en ligne pour cet hébergement n'est pas encore disponible. Contactez-nous pour plus d'informations.",
+        "availableSolutions": "{count} options disponibles pour les dates sélectionnées.",
+        "statusAvailable": "Disponible",
+        "statusUnavailable": "Indisponible",
+        "statusUnverifiable": "Temporairement non vérifiable",
+        "bookNow": "Réserver maintenant",
+        "bookOnBooking": "Réserver sur Booking",
+        "dates": "Dates",
+        "pickDates": "Choisissez votre séjour",
+        "pickDatesHint": "Appuyez sur une date d'arrivée, puis sur une date de départ. La plage est mise en évidence de manière claire et élégante.",
+        "clear": "Effacer",
+        "previousMonth": "Mois précédent",
+        "nextMonth": "Mois suivant",
+        "selectRange": "Sélectionnez la période de séjour",
+        "arrival": "Arrivée",
+        "departure": "Départ",
+        "nightsLabel": "Nuits",
+        "pickerHint": "Le sélecteur est conçu pour une utilisation rapide : un clic pour entrer, un clic pour sortir.",
+        "selectDate": "Sélectionner",
+        "oneNight": "1 nuit",
+        "nightsCount": "{count} nuits"
+      }
+    },
+    "address": "Vérone, Italie"
+  },
+  "common": {
+    "prenotaSubito": "Réserver",
+    "prenotaBooking": "Réserver sur Booking",
+    "leggiRecensioni": "Lire les avis sur Booking",
+    "scopriStrutture": "Découvrir les hébergements",
+    "scarica": "Télécharger",
+    "chiamaci": "Appelez-nous",
+    "language": "Langue",
+    "changeLanguage": "Changer de langue",
+    "languageSelector": "Sélecteur de langue",
+    "previousImage": "Image précédente de {name}",
+    "nextImage": "Image suivante de {name}",
+    "imageOf": "image {index}"
+  },
+  "cookie": {
+    "title": "Ce site utilise des cookies",
+    "description": "Nous utilisons des cookies techniques nécessaires au fonctionnement du site. Avec votre consentement, nous pouvons activer des cookies analytiques pour améliorer votre expérience. Vous pouvez choisir les cookies à accepter.",
+    "acceptAll": "Tout accepter",
+    "onlyNecessary": "Uniquement nécessaires",
+    "rejectAll": "Tout refuser",
+    "customize": "Personnaliser",
+    "hideDetails": "Masquer les détails",
+    "necessaryTitle": "Cookies techniques (toujours actifs)",
+    "necessaryDesc": "Essentiels au fonctionnement du site : navigation, formulaire de contact, préférences de langue. Aucun consentement requis.",
+    "analyticsTitle": "Cookies analytiques",
+    "analyticsDesc": "Nous aident à comprendre comment les visiteurs utilisent le site, de manière anonyme. Nous pourrions les activer à l'avenir avec Google Analytics ou Plausible.",
+    "marketingTitle": "Cookies marketing",
+    "marketingDesc": "Nous n'utilisons actuellement pas de cookies marketing ou de profilage. Si nous ajoutons des pixels de suivi à l'avenir, ce sera uniquement avec votre consentement.",
+    "privacyPolicy": "Politique de confidentialité"
+  },
+  "privacy": {
+    "title": "Politique de confidentialité",
+    "lastUpdated": "Dernière mise à jour : 31 mai 2026",
+    "intro": "Cette politique de confidentialité décrit comment 3 Amici Suites collecte, utilise et protège les données personnelles des utilisateurs qui visitent www.3amicisuites.it et utilisent nos services.",
+    "controller": {
+      "title": "Responsable du traitement",
+      "content": "3 Amici Suites, basé à Vérone, Italie. Email : treamici.cadapi@gmail.com."
+    },
+    "dataCollected": {
+      "title": "Données collectées",
+      "items": [
+        "Données fournies volontairement via le formulaire de contact (nom, email, téléphone, message).",
+        "Données de navigation collectées automatiquement (adresse IP, type de navigateur, pages visitées) via des cookies techniques.",
+        "Données relatives aux réservations si vous utilisez notre vérificateur de disponibilité (dates sélectionnées, hébergement d'intérêt)."
+      ]
+    },
+    "purpose": {
+      "title": "Finalité du traitement",
+      "items": [
+        "Répondre aux demandes envoyées via le formulaire de contact.",
+        "Vérifier la disponibilité des hébergements aux dates demandées.",
+        "Améliorer l'expérience de navigation sur le site."
+      ]
+    },
+    "legalBasis": {
+      "title": "Base juridique",
+      "content": "Le traitement est fondé sur l'intérêt légitime du responsable à répondre aux demandes des utilisateurs et à fournir les services demandés (art. 6, par. 1, lett. b et f du RGPD)."
+    },
+    "thirdParties": {
+      "title": "Tiers",
+      "content": "Pour l'envoi des emails, nous utilisons Resend (service tiers basé aux États-Unis, conforme au Data Privacy Framework UE-USA). Pour la vérification de disponibilité, nous consultons les flux iCal de Booking.com. Aucune donnée n'est cédée à des tiers à des fins commerciales."
+    },
+    "retention": {
+      "title": "Conservation des données",
+      "content": "Les données fournies via le formulaire de contact sont conservées le temps nécessaire pour répondre à la demande et, en cas de réservation, pour les obligations contractuelles et fiscales prévues par la loi."
+    },
+    "rights": {
+      "title": "Vos droits",
+      "content": "Vous avez le droit d'accéder à vos données, de les rectifier, de les effacer, de limiter leur traitement, de vous opposer au traitement et de demander la portabilité. Pour exercer ces droits, écrivez à treamici.cadapi@gmail.com.",
+      "complaint": "Si vous estimez que le traitement viole le RGPD, vous avez le droit d'introduire une réclamation auprès de l'autorité italienne de protection des données (www.garanteprivacy.it)."
+    },
+    "cookies": {
+      "title": "Cookies",
+      "content": "Ce site utilise uniquement des cookies techniques nécessaires au fonctionnement et, avec votre consentement, d'éventuels cookies analytiques. Vous pouvez gérer vos préférences à tout moment en cliquant sur le bouton 'Cookies' dans le pied de page."
+    },
+    "updates": {
+      "title": "Modifications de la politique",
+      "content": "Cette politique de confidentialité peut être mise à jour périodiquement. Les modifications seront publiées sur cette page."
+    }
+  },
+  "mobileNav": {
+    "openMenu": "Ouvrir le menu",
+    "closeMenu": "Fermer le menu",
+    "mobileNavigation": "Navigation mobile",
+    "close": "Fermer"
+  },
+  "footer": {
+    "cin": "CIN: IT023091B46Q6XZ8A6 · IT023091B4NXKGQSTZ · IT023091B4ADQ877W6 · IT023091B4QWP5XS3Q · IT023091B4F2NKLUX8",
+    "description": "Quatre hébergements pour voir et vivre Vérone comme un local avec tout le confort d'un voyage de luxe.",
+    "navigazione": "Navigation",
+    "contatti": "Contact"
+  },
+  "properties": {
+    "suites": {
+      "type": "Appartements",
+      "description": "Appartements climatisés au centre de Vérone, à quelques pas de l'Arène, Piazza Bra et Castelvecchio.",
+      "badges": [
+        "Centre historique",
+        "Wi-Fi gratuit",
+        "Climatisation",
+        "Cuisine équipée"
+      ],
+      "ratingLabel": "9,3 sur Booking",
+      "reviewCountLabel": "354 avis"
+    },
+    "teatro": {
+      "type": "Appartement",
+      "description": "Appartement très central, pratique pour ceux qui veulent visiter Vérone à pied tout en se garant directement sur place.",
+      "badges": [
+        "Centre historique",
+        "Parking privé",
+        "Wi-Fi gratuit",
+        "Climatisation"
+      ],
+      "ratingLabel": "9,2 sur Booking",
+      "reviewCountLabel": "120 avis"
+    },
+    "castello": {
+      "type": "Chambres",
+      "description": "Chambres élégantes avec vue unique sur le château, la rivière et l'arc des Gavi. Toutes avec salle de bain privée et balcon.",
+      "badges": [
+        "Centre historique",
+        "Wi-Fi gratuit",
+        "Balcon",
+        "Vue sur lieu historique"
+      ],
+      "ratingLabel": "9,3 sur Booking",
+      "reviewCountLabel": "plus de 460 avis"
+    },
+    "arena": {
+      "type": "Chambres",
+      "description": "Chambres modernes récemment rénovées dans un emplacement très central, équipées du meilleur confort.",
+      "badges": [
+        "Centre historique",
+        "Récemment rénové",
+        "Wi-Fi gratuit",
+        "Climatisation"
+      ],
+      "ratingLabel": "9,6 sur Booking",
+      "reviewCountLabel": "142 avis"
+    }
+  }
+}

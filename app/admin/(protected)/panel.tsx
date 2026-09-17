@@ -272,7 +272,7 @@ export function AdminPanel() {
                           setUrls((prev) => ({ ...prev, [room.roomSlug]: e.target.value }))
                         }
                         className="w-full rounded-xl border border-stone/20 bg-paper/60 px-3 py-2 text-[13px] text-ink outline-none transition font-mono placeholder:text-ink/30 focus:border-olive focus:bg-white"
-                        placeholder="https://ical.booking.com/v1/export/t/..."
+                        placeholder="https://ical.booking.com/v1/export?t=... oppure .../export/t/....ics"
                       />
                     </div>
 

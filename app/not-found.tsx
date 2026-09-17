@@ -2,19 +2,32 @@
 
 import { useEffect } from "react";
 import { useRouter } from "next/navigation";
+import { usePathname } from "next/navigation";
 import { Container } from "@/components/container";
 import { ButtonLink } from "@/components/button";
 
+const SUPPORTED_LOCALES = ["it", "en", "de", "fr"];
+
+function getLocaleFromPathname(pathname: string): string {
+  const segments = pathname.split("/").filter(Boolean);
+  if (segments.length > 0 && SUPPORTED_LOCALES.includes(segments[0])) {
+    return segments[0];
+  }
+  return "it"; // default
+}
+
 export default function NotFound() {
   const router = useRouter();
+  const pathname = usePathname();
+  const locale = getLocaleFromPathname(pathname);
 
   useEffect(() => {
     const timer = window.setTimeout(() => {
-      router.replace("/strutture");
+      router.replace(`/${locale}/strutture`);
     }, 1500);
 
     return () => window.clearTimeout(timer);
-  }, [router]);
+  }, [router, locale]);
 
   return (
     <section className="py-20">
@@ -26,8 +39,8 @@ export default function NotFound() {
             Se non vieni reindirizzato in automatico, puoi continuare dalla pagina delle strutture.
           </p>
           <div className="mt-8 flex flex-wrap justify-center gap-3">
-            <ButtonLink href="/strutture">Vai alle strutture</ButtonLink>
-            <ButtonLink href="/" variant="ghost">
+            <ButtonLink href={`/${locale}/strutture`}>Vai alle strutture</ButtonLink>
+            <ButtonLink href={`/${locale}`} variant="ghost">
               Torna alla home
             </ButtonLink>
           </div>

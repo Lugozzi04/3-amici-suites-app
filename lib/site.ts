@@ -121,8 +121,8 @@ export const contactInfo = {
   mapsUrl: "#",
   cin: "CIN: IT023091B46Q6XZ8A6 · IT023091B4NXKGQSTZ · IT023091B4ADQ877W6 · IT023091B4QWP5XS3Q · IT023091B4F2NKLUX8",
   social: [
-    { label: "Instagram", href: "#" },
-    { label: "Facebook", href: "#" },
+    { label: "Instagram", href: "https://www.instagram.com/3amicisuites/" },
+    { label: "Facebook", href: "https://www.facebook.com/3amicisuites" },
   ],
 };
 
@@ -150,12 +150,12 @@ export const homeHighlights = [
 ];
 
 export const amenities = [
-  "Wi-Fi veloce",
+  "Wi-Fi veloce fibra",
   "Climatizzazione",
   "Pulizia professionale",
-  "Self check-in dove previsto",
-  "Assistenza ospiti",
-  "Materiali informativi su Verona",
+  "Self check-in in orario notturno",
+  "Assistenza ospiti 24h",
+  "Guida gratuita su Verona",
 ];
 
 export const testimonials = [

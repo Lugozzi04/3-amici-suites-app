@@ -1,5 +1,5 @@
 import { properties } from "./bookingLinks";
-import overrides from "./ical-overrides.json";
+import staticOverrides from "./ical-overrides.json";
 
 export const ALL_AVAILABILITY_STRUCTURE_SLUG = "all";
 
@@ -11,7 +11,7 @@ export type AvailabilityFeed = {
   icalUrl: string;
 };
 
-const baseFeeds: AvailabilityFeed[] = [
+export const baseFeeds: AvailabilityFeed[] = [
   {
     propertySlug: "3-amici-suites",
     propertyName: "3 Amici Suites",
@@ -43,7 +43,7 @@ const baseFeeds: AvailabilityFeed[] = [
   {
     propertySlug: "3-amici-all-arena",
     propertyName: "3 Amici all'Arena",
-    roomSlug: "unita-principale",
+    roomSlug: "arena-unita",
     roomName: "3 Amici all'Arena",
     icalUrl: "https://ical.booking.com/v1/export/t/DA-INSERIRE-arena.ics",
   },
@@ -70,34 +70,37 @@ const baseFeeds: AvailabilityFeed[] = [
   },
 ];
 
-// Merge admin overrides from ical-overrides.json
 type OverridesMap = Record<string, string>; // roomSlug → new icalUrl
 
-export const availabilityFeeds: AvailabilityFeed[] = baseFeeds.map((feed) => {
-  const overrideUrl = (overrides as OverridesMap)[feed.roomSlug];
-  return overrideUrl ? { ...feed, icalUrl: overrideUrl } : feed;
-});
+/** Apply overrides to feeds */
+function applyOverrides(feeds: AvailabilityFeed[], overrides: OverridesMap): AvailabilityFeed[] {
+  return feeds.map((feed) => {
+    const overrideUrl = overrides[feed.roomSlug];
+    return overrideUrl ? { ...feed, icalUrl: overrideUrl } : feed;
+  });
+}
 
-export const hasOverrides = Object.keys(overrides as OverridesMap).length > 0;
+export const hasOverrides = Object.keys(staticOverrides as OverridesMap).length > 0;
 
 export const availabilityStructureOptions = properties.map((property) => ({
   propertySlug: property.slug,
   propertyName: property.name,
-  hasFeeds: availabilityFeeds.some((feed) => feed.propertySlug === property.slug),
+  hasFeeds: baseFeeds.some((feed) => feed.propertySlug === property.slug),
 }));
 
 export const allAvailabilityStructureOption = {
   propertySlug: ALL_AVAILABILITY_STRUCTURE_SLUG,
   propertyName: "Tutte le strutture",
-  hasFeeds: availabilityFeeds.length > 0,
+  hasFeeds: baseFeeds.length > 0,
 };
 
 export const availabilityStructureMenuOptions = [allAvailabilityStructureOption, ...availabilityStructureOptions];
 
-export function getFeedsForProperty(propertySlug: string) {
-  return availabilityFeeds.filter((feed) => feed.propertySlug === propertySlug);
+export function getFeedsForProperty(propertySlug: string, overrides?: OverridesMap) {
+  const feeds = baseFeeds.filter((feed) => feed.propertySlug === propertySlug);
+  return overrides ? applyOverrides(feeds, overrides) : feeds;
 }
 
-export function getAllFeeds() {
-  return availabilityFeeds;
+export function getAllFeeds(overrides?: OverridesMap) {
+  return overrides ? applyOverrides(baseFeeds, overrides) : baseFeeds;
 }

@@ -1,0 +1,471 @@
+{
+  "site": {
+    "motto": "Erlebe Verona wie ein Einheimischer",
+    "name": "3 Amici Suites",
+    "tagline": "Boutique-Gastfreundschaft in Verona"
+  },
+  "homeSections": {
+    "strutture": "Die Unterkünfte",
+    "servizi": "Service",
+    "verona": "Verona",
+    "contattoFinale": "Letzter Kontakt"
+  },
+  "nav": {
+    "home": "Startseite",
+    "strutture": "Unterkünfte",
+    "verona": "Verona",
+    "chiSiamo": "Über uns",
+    "contatti": "Kontakt"
+  },
+  "home": {
+    "title": "Vier Unterkünfte, die Ihren Verona-Aufenthalt unvergesslich machen",
+    "subtitle": "3 Amici Suites bietet vier neue, elegante und einladende Unterkünfte mit maximaler Aufmerksamkeit für den Gast für den bestmöglichen Aufenthalt.",
+    "stats": {
+      "years": {
+        "value": "8+",
+        "label": "Jahre Erfahrung"
+      },
+      "rating": {
+        "value": "9.2+",
+        "label": "Durchschnittsbewertung"
+      },
+      "reviews": {
+        "value": "100%",
+        "label": "echte Bewertungen"
+      }
+    },
+    "highlights": {
+      "title": "Vier Unterkünfte, um Verona wie ein Einheimischer zu sehen und zu erleben, mit allem Komfort einer Luxusreise.",
+      "items": [
+        {
+          "title": "Veroneser Gastfreundschaft",
+          "description": "Von Menschen, die schon immer in der Stadt leben und bereit sind, sie Ihnen zu zeigen."
+        },
+        {
+          "title": "Zentrale Lage",
+          "description": "Alle Unterkünfte befinden sich im historischen Zentrum, nur wenige Minuten von der Arena entfernt."
+        },
+        {
+          "title": "Zertifizierte Qualität",
+          "description": "Hunderte von Bewertungen mit einer Durchschnittsnote von konstant über 9."
+        }
+      ]
+    },
+    "services": {
+      "title": "Alles, was Sie brauchen, ohne Komplikationen.",
+      "subtitle": "Basisdienste, die wir immer kostenlos in jeder Unterkunft anbieten",
+      "items": [
+        "Schnelles Glasfaser-WLAN",
+        "Klimaanlage",
+        "Professionelle Reinigung",
+        "Self-Check-in nachts",
+        "24h Gästebetreuung",
+        "Kostenloser Verona-Reiseführer"
+      ]
+    },
+    "gallery": {
+      "title": "Galerie",
+      "subtitle": "Hier erhalten Sie einen schnellen Einblick in alle unsere Unterkünfte in einer wunderbaren Mischung aus echten, unbearbeiteten Fotos."
+    },
+    "reviews": {
+      "title": "Bewertungen",
+      "subtitle": "Vertrauen, das über Jahre aufgebaut wurde und unser Engagement widerspiegelt, Ihnen den besten Aufenthalt zu bieten.",
+      "stats": "Hervorragende Bewertungen über Jahre hinweg:",
+      "statsDetail": "Nach fast einem Jahrzehnt in Verona haben wir eine Durchschnittsbewertung von 9,2 oder höher in allen Unterkünften auf booking.com und rund 5 von 5 Sternen bei Google.",
+      "items": [
+        {
+          "value": "9.2+",
+          "label": "Booking-Durchschnitt"
+        },
+        {
+          "value": "5★",
+          "label": "Google-Durchschnitt"
+        },
+        {
+          "value": "100%",
+          "label": "echte Bewertungen"
+        }
+      ],
+      "testimonials": [
+        {
+          "quote": "Tadellose Gastfreundschaft, gepflegte Räume und einfache Kommunikation. Wir fühlten uns sofort wohl.",
+          "author": "Chiara, Italien"
+        },
+        {
+          "quote": "Hervorragende Lage für die Besichtigung von Verona und eine sehr angenehme Unterkunft mit Details, die den Unterschied machen.",
+          "author": "Marco, Deutschland"
+        },
+        {
+          "quote": "Sauberkeit, Ordnung und authentische Gastfreundschaft. Ein viel raffinierterer Aufenthalt als erwartet.",
+          "author": "Laura, Vereinigtes Königreich"
+        }
+      ]
+    },
+    "whyUs": {
+      "title": "Warum uns wählen",
+      "subtitle": "Eine diskrete, aber unvergessliche Präsenz.",
+      "items": [
+        {
+          "title": "Wir organisieren Ihre Wünsche",
+          "description": "Kontaktieren Sie uns direkt, wenn Sie ein besonderes Paket für einen besonderen Anlass erstellen oder ein Erlebnis in Verona oder Umgebung organisieren möchten.",
+          "action": "Anrufen",
+          "href": "tel:+393****8767"
+        },
+        {
+          "title": "Entdecken Sie, was Sie in Verona tun und besuchen können",
+          "description": "Laden Sie unseren kostenlosen Verona-Reiseführer mit allen Routen basierend auf Ihrer Aufenthaltsdauer herunter und entdecken Sie alle Geheimnisse der Stadt.",
+          "action": "Reiseführer herunterladen",
+          "href": "/downloads/guida-verona-de.pdf"
+        },
+        {
+          "title": "Entdecken Sie, wo Sie in Verona essen oder Spaß haben können",
+          "description": "Laden Sie unsere Liste von Restaurants und Lokalen herunter, die für jeden Anlass ausgewählt wurden, von Menschen, die schon immer in der Stadt leben.",
+          "action": "Liste herunterladen",
+          "href": "/downloads/ristoranti-bar-de.pdf"
+        }
+      ]
+    },
+    "contactFinal": {
+      "title": "Lassen Sie uns schnell und direkt reden.",
+      "subtitle": "Für Informationen, Verfügbarkeit oder Buchungsunterstützung oder bei Fragen.",
+      "buttons": {
+        "book": "Jetzt buchen",
+        "discover": "Unterkünfte entdecken"
+      }
+    }
+  },
+  "strutture": {
+    "title": "Vier Räume, eine Identität der Gastfreundschaft.",
+    "subtitle": "Vier verschiedene Unterkünfte für jeden Bedarf.",
+    "compareTitle": "Unterkünfte auf einen Blick vergleichen.",
+    "compareSubtitle": "Die folgenden Informationen stammen aus derselben Booking-Datenquelle und bleiben einfach manuell zu aktualisieren.",
+    "compareLabel": "Schnellvergleich",
+    "compareIdealePer": "Ideal für",
+    "compareDotazioni": "Ausstattung",
+    "compareFallbackBestFor": "flexible Aufenthalte",
+    "compareFallbackSourceNote": "Booking-Momentaufnahme, manuell aktualisierbar.",
+    "tags": {
+      "parcheggio": "Privatparkplatz",
+      "centroStorico": "Historisches Zentrum",
+      "vista": "Blick auf historische Stätten",
+      "ariaCondizionata": "Klimaanlage",
+      "wifi": "WLAN",
+      "cucina": "Küche"
+    },
+    "properties": {
+      "suites": {
+        "alt": "3 klimatisierte Apartments im Zentrum von Verona mit geräumigen Wohnzimmern mit Küche, 2 Minuten von der Arena entfernt mit einzigartigem Stil.",
+        "tags": "Apartments · Küche · Historisches Zentrum · 2 Min. zur Arena",
+        "bestFor": "Familien und Gruppen für mittellange bis lange Aufenthalte"
+      },
+      "teatro": {
+        "alt": "Apartment in sehr zentraler Lage, ideal für diejenigen, die Verona zu Fuß erkunden und direkt vor Ort parken möchten, mit Klimaanlage und Wohnzimmer mit Küche.",
+        "tags": "Apartment · Privatparkplatz · Klimaanlage · Küche",
+        "bestFor": "Ideal für Familien, Freunde und Paare, die Aufenthalte von 2 oder 3 Nächten suchen."
+      },
+      "castello": {
+        "alt": "Elegante Zimmer mit einzigartigem Blick auf die Burg, den Fluss und den Gavi-Bogen. Alle Zimmer mit eigenem Bad und Balkon.",
+        "tags": "Zimmer · Historisches Zentrum · Burgblick · Eigenes Bad und Balkon",
+        "bestFor": "Paare oder Gäste, die Natur und einzigartige Ausblicke suchen."
+      },
+      "arena": {
+        "alt": "Moderne, kürzlich renovierte Zimmer in sehr zentraler Lage, ausgestattet mit bestem Komfort.",
+        "tags": "Zimmer · Historisches Zentrum · Frisch renoviert · Maximaler Komfort",
+        "bestFor": "Paare und kurze bis mittellange Aufenthalte im Stadtzentrum"
+      }
+    },
+    "detail": {
+      "nonTrovata": "Unterkunft nicht gefunden",
+      "badgePrincipali": "Hauptauszeichnungen",
+      "galleryDinamica": "Dynamische Galerie",
+      "galleryTitle": "Echte Aufnahmen in Rotation.",
+      "galleryNote": "Die Galerie greift auf einen lokalen Pool kuratierter Bilder zu und wechselt automatisch nach einigen Sekunden.",
+      "dettagli": "Details",
+      "dettagliTitle": "Eine klare, nützliche Karte, bereit zur Konvertierung.",
+      "dettagliDescription": "Wesentliche Informationen sind lesbar aufbereitet, ohne visuelle Überlastung.",
+      "contesto": "Kontext",
+      "tipo": "Typ",
+      "indirizzo": "Adresse",
+      "rating": "Bewertung",
+      "recensioni": "Bewertungen",
+      "recensioniNote": "Bewertungsdaten und Punktzahlen: Booking-Momentaufnahme, manuell aktualisiert.",
+      "prenotazione": "Buchung",
+      "prenotazioneTitle": "Direkter Kontakt oder externe Plattform.",
+      "prenotazioneDescription": "Wenn Sie eine schnelle Antwort oder eine persönlichere Bestätigung wünschen, schreiben Sie uns. Alternativ können Sie auf der Booking-Seite der Unterkunft fortfahren.",
+      "sintesi": "Zusammenfassung",
+      "idealePer": "Ideal für",
+      "posizione": "Lage",
+      "notaFonte": "Quellenangabe"
+    }
+  },
+  "verona": {
+    "title": "Eine Stadt, die man im richtigen Tempo erleben sollte.",
+    "subtitle": "Eine kurze Auswahl nützlicher Erlebnisse, die Ihnen helfen sollen, einzigartige Erfahrungen zu machen, dank der Hilfe derjenigen, die schon immer in Verona leben.",
+    "experiences": [
+      {
+        "title": "Verona-Reiseführer",
+        "description": "Laden Sie unseren kostenlosen Verona-Reiseführer mit allen Routen basierend auf Ihrer Aufenthaltsdauer herunter.",
+        "action": "Reiseführer herunterladen",
+        "href": "/downloads/guida-verona-de.pdf"
+      },
+      {
+        "title": "Valpolicella und Wein",
+        "description": "Verkostungen und nahegelegene Hügel, perfekt für einen halbtägigen Ausflug. Laden Sie unseren Führer zu den besten Weingütern herunter.",
+        "action": "Weingut-Führer herunterladen",
+        "href": "/downloads/attivita-cantine-de.pdf"
+      },
+      {
+        "title": "Restaurants und lokale Küche",
+        "description": "Von der Veroneser Tradition bis zu zeitgenössischen Angeboten: ein solider Ausgangspunkt für Ihren Aufenthalt.",
+        "action": "Vorschläge herunterladen",
+        "href": "/downloads/ristoranti-bar-de.pdf"
+      },
+      {
+        "title": "Messen, Veranstaltungen und Opernsaison",
+        "description": "Eine nützliche Lage auch für diejenigen, die für Veranstaltungen, Konzerte oder berufliche Termine reisen.",
+        "action": "Mehr erfahren",
+        "href": "https://www.visitverona.it/de/veranstaltungskalender"
+      }
+    ]
+  },
+  "chiSiamo": {
+    "title": "Über uns",
+    "subtitle": "Eine familiengeführte Gastfreundschaft, die maximale Aufmerksamkeit für den Gast ermöglicht.",
+    "story": {
+      "title": "Unsere Geschichte",
+      "paragraph1": "3 Amici Suites entstand aus dem Wunsch, Gastfreundschaft auf einfache, gepflegte und persönliche Weise anzubieten. Alles begann mit Pietro, Dario und Carlo, die das alte Büro ihres Großvaters erbten und beschlossen, seiner Arbeit neues Leben einzuhauchen. So entstand unsere erste Unterkunft: 3 Amici Suites.",
+      "paragraph2": "Im Laufe der Jahre sind wir dank der guten Arbeit, die mit Leidenschaft und Opferbereitschaft geleistet wurde, immer weiter gewachsen, so wie es sich unser Großvater erträumt hätte.",
+      "paragraph3": "Im Laufe der Jahre verbindet unsere Vorstellung eines Aufenthalts Komfort, Liebe zum Detail und eine authentische Beziehung zu Verona. Wir versprechen keine Übertreibungen: Wir sind lieber konkret, zuverlässig und präsent."
+    },
+    "logo": {
+      "title": "Die Geschichte des Logos",
+      "text": "Das Logo wurde von einem Veroneser Künstler entworfen, der die 3 Freunde (eigentlich Enkel) als 3 Bögen darstellen wollte, die an die nahegelegene Arena von Verona erinnern. Das Design ist einfach und einzigartig, genau wie Ihre Erfahrung in unseren Unterkünften."
+    },
+    "videoUrl": "https://www.youtube.com/watch?v=oLQMg_oCdDw"
+  },
+  "contatti": {
+    "title": "Kontakt",
+    "subtitle": "Schreiben Sie uns direkt, ohne unnötige Schritte, zu günstigeren Preisen.",
+    "discount": "Alle Preise, die Sie sehen, sind 10% günstiger als die Preise auf Booking.com oder anderen Plattformen. Hier bekommen Sie immer den besten Preis!",
+    "checkAvailability": "Prüfen Sie die Verfügbarkeit und kontaktieren Sie uns telefonisch, per WhatsApp oder per E-Mail.",
+    "bookingSection": {
+      "title": "Buchung",
+      "text": "Wenn Sie möchten, können Sie auch über externe Plattformen zu einem höheren Preis buchen. Kontaktieren Sie uns bei Fragen."
+    },
+    "usefulData": "Nützliche Informationen",
+    "map": {
+      "title": "Karte",
+      "description": "Vier Unterkünfte in Verona auf einer interaktiven Karte mit einem klaren, eleganten Look.",
+      "structure": "Unterkunft",
+      "openInGoogleMaps": "In Google Maps öffnen"
+    },
+    "form": {
+      "prefillMessage": "Wir haben eine erste Nachricht für Sie vorbereitet: Sie können sie vor dem Senden bearbeiten.",
+      "directMessage": "Schreiben Sie uns direkt: Wir antworten per E-Mail und können Sie zur passendsten Unterkunft führen.",
+      "name": "Name",
+      "email": "E-Mail",
+      "phone": "Telefon",
+      "message": "Nachricht",
+      "placeholder": "Erzählen Sie uns, was Sie brauchen: Unterkunft, ungefähre Daten, Anzahl der Gäste oder andere Anforderungen.",
+      "sending": "Wird gesendet...",
+      "submit": "Anfrage senden",
+      "orWriteUs": "Oder schreiben Sie uns direkt",
+      "directContact": "Direkter Kontakt",
+      "directContactNote": "Wenn Sie möchten, können Sie uns auch per E-Mail oder Telefon schreiben. Das Formular macht den ersten Kontakt nur organisierter und schneller.",
+      "optional": "(optional)",
+      "checkFields": "Überprüfen Sie die markierten Felder und versuchen Sie es erneut.",
+      "sendFailed": "Senden fehlgeschlagen. Bitte versuchen Sie es in ein paar Minuten erneut oder kontaktieren Sie uns direkt.",
+      "sendSuccess": "Nachricht erfolgreich gesendet. Wir werden uns so schnell wie möglich bei Ihnen melden."
+    },
+    "availability": {
+      "title": "Verfügbarkeit",
+      "updatingTitle": "Kalender werden aktualisiert",
+      "updatingDescription": "Die Booking-Kalender werden aktualisiert. Die Verfügbarkeitsprüfung in Echtzeit ist in Kürze wieder verfügbar.",
+      "whatHappened": "⚠️ Was ist passiert?",
+      "whatHappenedDesc": "Die Synchronisierungslinks von Booking.com müssen regelmäßig erneuert werden. Unser Team wurde benachrichtigt und aktualisiert die Verbindungen.",
+      "whatHappenedNote": "In der Zwischenzeit können Sie uns direkt über das untenstehende Formular kontaktieren, um die Verfügbarkeit der Unterkünfte zu prüfen.",
+      "autoRestore": "Die automatische Überprüfung wird automatisch fortgesetzt, sobald die Kalender aktualisiert sind.",
+      "checker": {
+        "eyebrow": "Verfügbarkeit prüfen",
+        "heading": "Verfügbarkeit prüfen",
+        "description": "Wählen Sie die Unterkunft und die Daten: Wir prüfen die verbundenen Booking-Kalender und zeigen Ihnen nur die wirklich verfügbaren Optionen.",
+        "outdatedFeedsTitle": "⚠️ Unterkünfte mit veralteten Kalendern:",
+        "outdatedFeedsNote": "Um die Verfügbarkeit zu prüfen oder diese Unterkünfte zu buchen, nutzen Sie das Kontaktformular unten.",
+        "structureLabel": "Unterkunft",
+        "guestCountLabel": "Anzahl der Personen",
+        "person": "Person",
+        "people": "Personen",
+        "verify": "Prüfen",
+        "checking": "Prüfung läuft...",
+        "result": "Ergebnis",
+        "dateFrom": "Vom",
+        "dateTo": "bis",
+        "verificationError": "Die Verfügbarkeit für diese Unterkunft konnte nicht überprüft werden. Die Booking-Kalender sind möglicherweise nicht mehr synchronisiert. Kontaktieren Sie uns für Hilfe.",
+        "availabilityUnavailable": "Die Online-Verfügbarkeit für diese Unterkunft ist noch nicht verfügbar. Kontaktieren Sie uns für weitere Informationen.",
+        "availableSolutions": "{count} verfügbare Optionen für die gewählten Daten.",
+        "statusAvailable": "Verfügbar",
+        "statusUnavailable": "Nicht verfügbar",
+        "statusUnverifiable": "Vorübergehend nicht prüfbar",
+        "bookNow": "Jetzt buchen",
+        "bookOnBooking": "Auf Booking buchen",
+        "dates": "Daten",
+        "pickDates": "Wählen Sie Ihren Aufenthalt",
+        "pickDatesHint": "Tippen Sie auf ein Anreisedatum, dann auf ein Abreisedatum. Der Zeitraum wird klar und elegant hervorgehoben.",
+        "clear": "Löschen",
+        "previousMonth": "Zum Vormonat",
+        "nextMonth": "Zum nächsten Monat",
+        "selectRange": "Wählen Sie Ihren Aufenthaltszeitraum",
+        "arrival": "Ankunft",
+        "departure": "Abreise",
+        "nightsLabel": "Nächte",
+        "pickerHint": "Der Picker ist für schnelle Nutzung ausgelegt: ein Klick zum Starten, ein Klick zum Beenden.",
+        "selectDate": "Auswählen",
+        "oneNight": "1 Nacht",
+        "nightsCount": "{count} Nächte"
+      }
+    },
+    "address": "Verona, Italien"
+  },
+  "common": {
+    "prenotaSubito": "Buchen",
+    "prenotaBooking": "Auf Booking buchen",
+    "leggiRecensioni": "Bewertungen auf Booking lesen",
+    "scopriStrutture": "Unterkünfte entdecken",
+    "scarica": "Herunterladen",
+    "chiamaci": "Rufen Sie uns an",
+    "language": "Sprache",
+    "changeLanguage": "Sprache ändern",
+    "languageSelector": "Sprachauswahl",
+    "previousImage": "Vorheriges Bild von {name}",
+    "nextImage": "Nächstes Bild von {name}",
+    "imageOf": "Bild {index}"
+  },
+  "cookie": {
+    "title": "Diese Website verwendet Cookies",
+    "description": "Wir verwenden technische Cookies, die für den Betrieb der Website erforderlich sind. Mit Ihrer Zustimmung können wir Analyse-Cookies aktivieren, um Ihr Erlebnis zu verbessern. Sie können wählen, welche Cookies Sie akzeptieren.",
+    "acceptAll": "Alle akzeptieren",
+    "onlyNecessary": "Nur notwendige",
+    "rejectAll": "Alle ablehnen",
+    "customize": "Anpassen",
+    "hideDetails": "Details ausblenden",
+    "necessaryTitle": "Technische Cookies (immer aktiv)",
+    "necessaryDesc": "Notwendig für den Betrieb der Website: Navigation, Kontaktformular, Spracheinstellungen. Keine Zustimmung erforderlich.",
+    "analyticsTitle": "Analyse-Cookies",
+    "analyticsDesc": "Helfen uns zu verstehen, wie Besucher die Website anonym nutzen. Wir könnten sie in Zukunft mit Google Analytics oder Plausible aktivieren.",
+    "marketingTitle": "Marketing-Cookies",
+    "marketingDesc": "Wir verwenden derzeit keine Marketing- oder Profiling-Cookies. Sollten wir in Zukunft Tracking-Pixel hinzufügen, geschieht dies nur mit Ihrer Zustimmung.",
+    "privacyPolicy": "Datenschutzerklärung"
+  },
+  "privacy": {
+    "title": "Datenschutzerklärung",
+    "lastUpdated": "Letzte Aktualisierung: 31. Mai 2026",
+    "intro": "Diese Datenschutzerklärung beschreibt, wie 3 Amici Suites personenbezogene Daten von Nutzern erhebt, verwendet und schützt, die www.3amicisuites.it besuchen und unsere Dienste nutzen.",
+    "controller": {
+      "title": "Verantwortlicher",
+      "content": "3 Amici Suites, mit Sitz in Verona, Italien. E-Mail: treamici.cadapi@gmail.com."
+    },
+    "dataCollected": {
+      "title": "Erhobene Daten",
+      "items": [
+        "Freiwillig über das Kontaktformular bereitgestellte Daten (Name, E-Mail, Telefon, Nachricht).",
+        "Automatisch erfasste Browserdaten (IP-Adresse, Browsertyp, besuchte Seiten) durch technische Cookies.",
+        "Buchungsbezogene Daten bei Nutzung des Verfügbarkeitschecks (ausgewählte Daten, gewünschte Unterkunft)."
+      ]
+    },
+    "purpose": {
+      "title": "Zweck der Verarbeitung",
+      "items": [
+        "Beantwortung von Anfragen über das Kontaktformular.",
+        "Prüfung der Verfügbarkeit der Unterkünfte für die gewünschten Daten.",
+        "Verbesserung der Nutzererfahrung auf der Website."
+      ]
+    },
+    "legalBasis": {
+      "title": "Rechtsgrundlage",
+      "content": "Die Verarbeitung beruht auf dem berechtigten Interesse des Verantwortlichen, Nutzeranfragen zu beantworten und die angeforderten Dienstleistungen zu erbringen (Art. 6 Abs. 1 lit. b und f DSGVO)."
+    },
+    "thirdParties": {
+      "title": "Dritte",
+      "content": "Für den E-Mail-Versand nutzen wir Resend (ein Drittanbieter mit Sitz in den USA, konform mit dem EU-US Data Privacy Framework). Für die Verfügbarkeitsprüfung konsultieren wir die iCal-Feeds von Booking.com. Es werden keine Daten zu kommerziellen Zwecken an Dritte weitergegeben."
+    },
+    "retention": {
+      "title": "Datenspeicherung",
+      "content": "Die über das Kontaktformular bereitgestellten Daten werden so lange gespeichert, wie es für die Beantwortung der Anfrage erforderlich ist, und im Falle einer Buchung für die gesetzlich vorgeschriebenen vertraglichen und steuerlichen Pflichten."
+    },
+    "rights": {
+      "title": "Ihre Rechte",
+      "content": "Sie haben das Recht auf Auskunft, Berichtigung, Löschung, Einschränkung der Verarbeitung, Widerspruch und Datenübertragbarkeit. Um diese Rechte auszuüben, schreiben Sie an treamici.cadapi@gmail.com.",
+      "complaint": "Wenn Sie der Meinung sind, dass die Verarbeitung gegen die DSGVO verstößt, haben Sie das Recht, eine Beschwerde bei der italienischen Datenschutzbehörde (www.garanteprivacy.it) einzureichen."
+    },
+    "cookies": {
+      "title": "Cookies",
+      "content": "Diese Website verwendet nur technische Cookies, die für den Betrieb erforderlich sind, und mit Ihrer Zustimmung eventuelle Analyse-Cookies. Sie können Ihre Präferenzen jederzeit verwalten, indem Sie auf die Schaltfläche 'Cookies' in der Fußzeile klicken."
+    },
+    "updates": {
+      "title": "Änderungen der Erklärung",
+      "content": "Diese Datenschutzerklärung kann regelmäßig aktualisiert werden. Änderungen werden auf dieser Seite veröffentlicht."
+    }
+  },
+  "mobileNav": {
+    "openMenu": "Menü öffnen",
+    "closeMenu": "Menü schließen",
+    "mobileNavigation": "Mobile Navigation",
+    "close": "Schließen"
+  },
+  "footer": {
+    "cin": "CIN: IT023091B46Q6XZ8A6 · IT023091B4NXKGQSTZ · IT023091B4ADQ877W6 · IT023091B4QWP5XS3Q · IT023091B4F2NKLUX8",
+    "description": "Vier Unterkünfte, um Verona wie ein Einheimischer zu sehen und zu erleben, mit allem Komfort einer Luxusreise.",
+    "navigazione": "Navigation",
+    "contatti": "Kontakt"
+  },
+  "properties": {
+    "suites": {
+      "type": "Apartments",
+      "description": "Klimatisierte Apartments im Zentrum von Verona, nur wenige Schritte von der Arena, Piazza Bra und Castelvecchio entfernt.",
+      "badges": [
+        "Historisches Zentrum",
+        "Kostenloses WLAN",
+        "Klimaanlage",
+        "Ausgestattete Küche"
+      ],
+      "ratingLabel": "9,3 auf Booking",
+      "reviewCountLabel": "354 Bewertungen"
+    },
+    "teatro": {
+      "type": "Apartment",
+      "description": "Apartment in sehr zentraler Lage, ideal für diejenigen, die Verona zu Fuß erkunden möchten und direkt vor Ort parken können.",
+      "badges": [
+        "Historisches Zentrum",
+        "Privatparkplatz",
+        "Kostenloses WLAN",
+        "Klimaanlage"
+      ],
+      "ratingLabel": "9,2 auf Booking",
+      "reviewCountLabel": "120 Bewertungen"
+    },
+    "castello": {
+      "type": "Zimmer",
+      "description": "Elegante Zimmer mit einzigartigem Blick auf das Schloss, den Fluss und den Gavi-Bogen. Alle mit eigenem Bad und Balkon.",
+      "badges": [
+        "Historisches Zentrum",
+        "Kostenloses WLAN",
+        "Balkon",
+        "Blick auf historische Sehenswürdigkeiten"
+      ],
+      "ratingLabel": "9,3 auf Booking",
+      "reviewCountLabel": "über 460 Bewertungen"
+    },
+    "arena": {
+      "type": "Zimmer",
+      "description": "Moderne, kürzlich renovierte Zimmer in sehr zentraler Lage, ausgestattet mit bestem Komfort.",
+      "badges": [
+        "Historisches Zentrum",
+        "Neu renoviert",
+        "Kostenloses WLAN",
+        "Klimaanlage"
+      ],
+      "ratingLabel": "9,6 bei Booking",
+      "reviewCountLabel": "142 Bewertungen"
+    }
+  }
+}

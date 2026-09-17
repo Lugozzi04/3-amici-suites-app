@@ -15,7 +15,7 @@ export default async function AdminLayout({ children }: { children: React.ReactN
   const envPassword = process.env.ADMIN_PASSWORD;
 
   if (!envPassword || token !== envPassword) {
-    redirect("/3-amici-suites/admin/login/");
+    redirect("/admin/login");
   }
 
   return (

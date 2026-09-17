@@ -59,7 +59,7 @@ export const properties: BookingProperty[] = [
   {
     slug: "3-amici-al-castello",
     name: "3 Amici al Castello",
-    type: "Camere / B&B",
+    type: "Camere",
     address: "1 Piazza Arsenale, Borgo Trento, Verona",
     bookingUrl: "https://www.booking.com/hotel/it/3-amici-al-castello.it.html",
     reviewsUrl: "https://www.booking.com/reviews/it/hotel/3-amici-al-castello.en-gb.html",
@@ -74,7 +74,7 @@ export const properties: BookingProperty[] = [
   {
     slug: "3-amici-all-arena",
     name: "3 Amici all’Arena",
-    type: "Guest house / Camere",
+    type: "Camere",
     address: "Via dei Mutilati, 3, Centro storico di Verona, Verona",
     bookingUrl: "https://www.booking.com/hotel/it/3-amici-all-arena.it.html",
     reviewsUrl: "https://www.booking.com/reviews/it/hotel/3-amici-all-arena.it.html",

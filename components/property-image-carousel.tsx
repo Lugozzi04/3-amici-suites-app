@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useMemo, useRef, useState } from "react";
+import { useTranslations } from "next-intl";
 import { ImageFrame } from "@/components/image-frame";
 import { cn } from "@/lib/utils";
 
@@ -16,6 +17,7 @@ export function PropertyImageCarousel({ name, type, images, className }: Propert
   const [index, setIndex] = useState(() => getInitialIndex(name, safeImages.length));
   const [transitioning, setTransitioning] = useState(false);
   const timeoutRef = useRef<number | null>(null);
+  const tc = useTranslations("common");
 
   useEffect(() => {
     return () => {
@@ -59,7 +61,7 @@ export function PropertyImageCarousel({ name, type, images, className }: Propert
     >
       <ImageFrame
         src={currentImage}
-        alt={`${name} - immagine ${index + 1}`}
+        alt={`${name} - ${tc("imageOf", { index: index + 1 })}`}
         className="aspect-square h-full w-full rounded-[1.9rem] shadow-none"
         sizes="(max-width: 768px) 100vw, 40vw"
       />
@@ -78,7 +80,7 @@ export function PropertyImageCarousel({ name, type, images, className }: Propert
           <button
             type="button"
             onClick={() => move(-1)}
-            aria-label={`Immagine precedente di ${name}`}
+            aria-label={tc("previousImage", { name })}
             className="pointer-events-auto inline-flex h-9 w-9 items-center justify-center rounded-full border border-white/55 bg-stone-100/40 text-ink/55 shadow-sm backdrop-blur-sm transition hover:bg-stone-100/60 hover:text-ink focus:outline-none focus:ring-2 focus:ring-olive/50"
           >
             <span className="text-lg leading-none">‹</span>
@@ -86,7 +88,7 @@ export function PropertyImageCarousel({ name, type, images, className }: Propert
           <button
             type="button"
             onClick={() => move(1)}
-            aria-label={`Immagine successiva di ${name}`}
+            aria-label={tc("nextImage", { name })}
             className="pointer-events-auto inline-flex h-9 w-9 items-center justify-center rounded-full border border-white/55 bg-stone-100/40 text-ink/55 shadow-sm backdrop-blur-sm transition hover:bg-stone-100/60 hover:text-ink focus:outline-none focus:ring-2 focus:ring-olive/50"
           >
             <span className="text-lg leading-none">›</span>

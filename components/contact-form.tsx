@@ -1,10 +1,10 @@
 "use client";
 
 import { useEffect, useState, type FormEvent } from "react";
+import { useTranslations } from "next-intl";
 import { Button } from "@/components/button";
 import { contactHoneypotField, emptyContactFormValues, validateContactForm, type ContactFormErrors, type ContactFormValues } from "@/lib/contact-form";
 import { basePath } from "@/lib/base-path";
-import { contactInfo } from "@/src/data/site-content";
 
 type SubmissionState =
   | { kind: "idle" }
@@ -23,6 +23,7 @@ export function ContactForm({
   initialMessage?: string;
   prefillVersion?: number;
 }) {
+  const t = useTranslations("contatti");
   const [form, setForm] = useState<ContactFormValues>(() => ({
     ...initialState,
     message: initialMessage,
@@ -59,7 +60,7 @@ export function ContactForm({
     setErrors(validation.errors);
 
     if (!validation.valid) {
-      setSubmission({ kind: "error", message: "Controlla i campi evidenziati e riprova." });
+      setSubmission({ kind: "error", message: t("form.checkFields") });
       return;
     }
 
@@ -96,7 +97,7 @@ export function ContactForm({
           kind: "error",
           message:
             payload?.message ||
-            "Invio non riuscito. Riprova tra qualche minuto oppure contattaci direttamente.",
+            t("form.sendFailed"),
         });
         return;
       }
@@ -105,12 +106,12 @@ export function ContactForm({
       setErrors({});
       setSubmission({
         kind: "success",
-        message: payload?.message || "Messaggio inviato correttamente. Ti risponderemo il prima possibile.",
+        message: payload?.message || t("form.sendSuccess"),
       });
     } catch {
       setSubmission({
         kind: "error",
-        message: "Invio non riuscito. Riprova tra qualche minuto oppure contattaci direttamente.",
+        message: t("form.sendFailed"),
       });
     }
   }
@@ -124,19 +125,19 @@ export function ContactForm({
       >
         <div className="rounded-[1.4rem] bg-[#efe4d6]/70 px-4 py-3 text-sm text-ink/72">
           {initialMessage
-            ? "Abbiamo preparato un messaggio di partenza per te: puoi modificarlo prima di inviarlo."
-            : "Scrivici direttamente: rispondiamo via email e possiamo orientarti verso la struttura più adatta."}
+            ? t("form.prefillMessage")
+            : t("form.directMessage")}
         </div>
 
         <div className="grid gap-5 md:grid-cols-2">
           <Field
-            label="Nome"
+            label={t("form.name")}
             value={form.name}
             error={errors.name}
             onChange={(value) => setForm((current) => ({ ...current, name: value }))}
           />
           <Field
-            label="Email"
+            label={t("form.email")}
             type="email"
             value={form.email}
             error={errors.email}
@@ -145,16 +146,17 @@ export function ContactForm({
         </div>
 
         <Field
-          label="Telefono"
+          label={t("form.phone")}
           value={form.phone}
           error={errors.phone}
           onChange={(value) => setForm((current) => ({ ...current, phone: value }))}
           optional
+          optionalLabel={t("form.optional")}
         />
 
         <div className="grid gap-2">
           <label className="text-sm font-medium text-ink" htmlFor="message">
-            Messaggio
+            {t("form.message")}
           </label>
           <textarea
             id="message"
@@ -164,7 +166,7 @@ export function ContactForm({
             aria-invalid={Boolean(errors.message)}
             aria-describedby={errors.message ? "message-error" : undefined}
             className="rounded-2xl border border-stone/25 bg-paper/60 px-4 py-3 text-sm text-ink outline-none transition placeholder:text-ink/40 focus:border-olive focus:bg-white"
-            placeholder="Raccontaci cosa ti serve: struttura, date indicative, numero di ospiti o altre esigenze."
+            placeholder={t("form.placeholder")}
           />
           {errors.message ? (
             <p id="message-error" className="text-sm text-[#9b463d]" role="alert">
@@ -186,10 +188,10 @@ export function ContactForm({
 
         <div className="flex flex-wrap items-center gap-4">
           <Button type="submit" disabled={submission.kind === "submitting"}>
-            {submission.kind === "submitting" ? "Invio in corso..." : "Invia richiesta"}
+            {submission.kind === "submitting" ? t("form.sending") : t("form.submit")}
           </Button>
-          <a className="text-sm text-olive hover:text-[#556146]" href={`mailto:${contactInfo.email}`}>
-            Oppure scrivici direttamente
+          <a className="text-sm text-olive hover:text-[#556146]" href="mailto:treamici.cadapi@gmail.com">
+            {t("form.orWriteUs")}
           </a>
         </div>
 
@@ -207,18 +209,17 @@ export function ContactForm({
       </form>
 
       <div className="grid gap-4 rounded-[1.8rem] border border-stone/20 bg-[#f8f3eb] p-5 text-sm text-ink/72 shadow-soft">
-        <p className="text-xs uppercase tracking-[0.28em] text-earth">Contatto diretto</p>
+        <p className="text-xs uppercase tracking-[0.28em] text-earth">{t("form.directContact")}</p>
         <div className="grid gap-2 sm:grid-cols-2">
-          <a className="hover:text-ink" href={`mailto:${contactInfo.email}`}>
-            {contactInfo.email}
+          <a className="hover:text-ink" href="mailto:treamici.cadapi@gmail.com">
+            treamici.cadapi@gmail.com
           </a>
-          <a className="hover:text-ink" href={`tel:${contactInfo.phone}`}>
-            {contactInfo.phone}
+          <a className="hover:text-ink" href="tel:+393474848767">
+            +39 347 484 8767
           </a>
         </div>
         <p className="leading-7">
-          Se preferisci, puoi scriverci anche via email o telefono. Il modulo serve solo a rendere il
-          primo contatto più ordinato e veloce.
+          {t("form.directContactNote")}
         </p>
       </div>
     </div>
@@ -232,6 +233,7 @@ function Field({
   error,
   type = "text",
   optional = false,
+  optionalLabel = "(facoltativo)",
 }: {
   label: string;
   value: string;
@@ -239,6 +241,7 @@ function Field({
   error?: string;
   type?: string;
   optional?: boolean;
+  optionalLabel?: string;
 }) {
   const id = label.toLowerCase().replace(/\s+/g, "-");
 
@@ -246,7 +249,7 @@ function Field({
     <div className="grid gap-2">
       <label className="text-[12px] uppercase tracking-[0.22em] text-earth" htmlFor={id}>
         {label}
-        {optional ? " (facoltativo)" : ""}
+        {optional ? ` ${optionalLabel}` : ""}
       </label>
       <input
         id={id}

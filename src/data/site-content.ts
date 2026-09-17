@@ -7,8 +7,8 @@ export const contactInfo = {
   mapsUrl: "#",
   cin: "CIN: IT023091B46Q6XZ8A6 Â· IT023091B4NXKGQSTZ Â· IT023091B4ADQ877W6 Â· IT023091B4QWP5XS3Q Â· IT023091B4F2NKLUX8",
   social: [
-    { label: "Instagram", href: "#" },
-    { label: "Facebook", href: "#" },
+    { label: "Instagram", href: "https://www.instagram.com/3amicisuites/" },
+    { label: "Facebook", href: "https://www.facebook.com/3amicisuites" },
   ],
 };
 

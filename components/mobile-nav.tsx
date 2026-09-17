@@ -4,12 +4,28 @@ import Link from "next/link";
 import { createPortal } from "react-dom";
 import { useEffect, useState } from "react";
 import { cn } from "@/lib/utils";
+import { useLocale, useTranslations } from "next-intl";
 import { LanguageSwitcher } from "@/components/language-switcher";
-import { contactInfo, navigation } from "@/src/data/site-content";
+import { contactInfo } from "@/src/data/site-content";
+
+const navKeys = ["home", "strutture", "verona", "chiSiamo", "contatti"] as const;
 
 export function MobileNav() {
   const [open, setOpen] = useState(false);
   const [mounted, setMounted] = useState(false);
+  const locale = useLocale();
+  const tm = useTranslations("mobileNav");
+  const tn = useTranslations("nav");
+  const ts = useTranslations("site");
+  const tf = useTranslations("footer");
+
+  const navHrefs: Record<string, string> = {
+    home: `/${locale}`,
+    strutture: `/${locale}/strutture`,
+    verona: `/${locale}/verona`,
+    chiSiamo: `/${locale}/chi-siamo`,
+    contatti: `/${locale}/contatti`,
+  };
 
   useEffect(() => {
     setMounted(true);
@@ -50,7 +66,7 @@ export function MobileNav() {
         type="button"
         aria-expanded={open}
         aria-controls="mobile-navigation"
-        aria-label={open ? "Chiudi menu" : "Apri menu"}
+        aria-label={open ? tm("closeMenu") : tm("openMenu")}
         onClick={() => setOpen((value) => !value)}
         className="rounded-full border border-stone/30 bg-white/85 px-4 py-2 text-sm text-ink shadow-sm backdrop-blur transition hover:bg-white"
       >
@@ -69,7 +85,7 @@ export function MobileNav() {
                   id="mobile-navigation"
                   role="dialog"
                   aria-modal="true"
-                  aria-label="Navigazione mobile"
+                  aria-label={tm("mobileNavigation")}
                   className={cn(
                     "w-full max-w-md overflow-hidden rounded-[2rem] border border-white/60 bg-paper/96 shadow-lift",
                   )}
@@ -82,7 +98,7 @@ export function MobileNav() {
                     <div>
                       <p className="font-serif text-2xl leading-none text-ink">3 Amici Suites</p>
                       <p className="mt-1 text-[10px] uppercase tracking-[0.26em] text-earth">
-                        Verona boutique hospitality
+                        {ts("tagline")}
                       </p>
                     </div>
                     <button
@@ -90,20 +106,20 @@ export function MobileNav() {
                       onClick={() => setOpen(false)}
                       className="rounded-full border border-stone/25 bg-white/85 px-4 py-2 text-sm text-ink shadow-sm transition hover:bg-white"
                     >
-                      Chiudi
+                      {tm("close")}
                     </button>
                   </div>
 
                   <div className="max-h-[calc(100dvh-9.25rem)] overflow-y-auto px-5 py-5">
                     <nav className="grid gap-3">
-                      {navigation.map((item) => (
+                      {navKeys.map((key) => (
                         <Link
-                          key={item.href}
-                          href={item.href}
+                          key={key}
+                          href={navHrefs[key]}
                           onClick={() => setOpen(false)}
                           className="rounded-[1.4rem] border border-stone/15 bg-white px-4 py-4 text-base text-ink shadow-sm transition hover:-translate-y-0.5 hover:border-olive/30 hover:bg-[#faf8f3]"
                         >
-                          {item.label}
+                          {tn(key)}
                         </Link>
                       ))}
                     </nav>
@@ -113,7 +129,7 @@ export function MobileNav() {
                     </div>
 
                     <div className="mt-5 rounded-[1.5rem] border border-stone/15 bg-[#f8f3eb] p-5">
-                      <p className="text-xs uppercase tracking-[0.28em] text-earth">Contatti</p>
+                      <p className="text-xs uppercase tracking-[0.28em] text-earth">{tf("contatti")}</p>
                       <a className="mt-3 block text-sm text-ink" href={`mailto:${contactInfo.email}`}>
                         {contactInfo.email}
                       </a>

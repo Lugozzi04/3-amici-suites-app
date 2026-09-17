@@ -2,9 +2,18 @@
 
 import { useMemo, useState } from "react";
 import { DayPicker, type DateRange } from "react-day-picker";
-import { it } from "react-day-picker/locale";
+import { it, de, fr, es, enUS } from "react-day-picker/locale";
+import { useTranslations, useLocale } from "next-intl";
 
 import { cn } from "@/lib/utils";
+
+const rdpLocales: Record<string, typeof it> = {
+  it,
+  de,
+  fr,
+  es,
+  en: enUS,
+};
 
 type AvailabilityRangePickerProps = {
   value: DateRange | undefined;
@@ -16,6 +25,9 @@ export function AvailabilityRangePicker({ value, onChange, onClear }: Availabili
   const [hoveredDate, setHoveredDate] = useState<Date | undefined>(undefined);
   const [month, setMonth] = useState(() => startOfMonth(new Date()));
   const currentMonth = startOfMonth(new Date());
+  const t = useTranslations("contatti.availability.checker");
+  const locale = useLocale();
+  const rdpLocale = rdpLocales[locale] ?? it;
 
   const previewRange = useMemo(() => {
     if (!value?.from || value.to || !hoveredDate) {
@@ -35,10 +47,10 @@ export function AvailabilityRangePicker({ value, onChange, onClear }: Availabili
       <div className="border-b border-stone/12 bg-gradient-to-b from-white/92 to-[#f7f1e8] px-4 py-4 sm:px-5">
         <div className="flex flex-wrap items-start justify-between gap-3">
           <div>
-            <p className="text-[11px] uppercase tracking-[0.24em] text-earth">Date</p>
-            <h4 className="mt-1 text-lg font-medium text-ink">Scegli il soggiorno</h4>
+            <p className="text-[11px] uppercase tracking-[0.24em] text-earth">{t("dates")}</p>
+            <h4 className="mt-1 text-lg font-medium text-ink">{t("pickDates")}</h4>
             <p className="mt-2 text-sm leading-6 text-ink/62">
-              Tocca una data di arrivo, poi una di partenza. Il range si evidenzia in modo chiaro e raffinato.
+              {t("pickDatesHint")}
             </p>
           </div>
 
@@ -55,7 +67,7 @@ export function AvailabilityRangePicker({ value, onChange, onClear }: Availabili
             )}
             disabled={!value?.from && !value?.to}
           >
-            Azzera
+            {t("clear")}
           </button>
         </div>
       </div>
@@ -64,7 +76,7 @@ export function AvailabilityRangePicker({ value, onChange, onClear }: Availabili
         <div className="mb-3 flex items-center gap-2 px-1 sm:px-0">
           <button
             type="button"
-            aria-label="Vai al mese precedente"
+            aria-label={t("previousMonth")}
             onClick={() => setMonth((current) => startOfMonth(addMonths(current, -1)))}
             disabled={month <= currentMonth}
             className={cn(
@@ -77,7 +89,7 @@ export function AvailabilityRangePicker({ value, onChange, onClear }: Availabili
           </button>
           <button
             type="button"
-            aria-label="Vai al mese successivo"
+            aria-label={t("nextMonth")}
             onClick={() => setMonth((current) => startOfMonth(addMonths(current, 1)))}
             className={cn(
               "inline-flex h-10 w-10 items-center justify-center rounded-full border border-stone/20 bg-white/88 text-ink transition",
@@ -90,7 +102,7 @@ export function AvailabilityRangePicker({ value, onChange, onClear }: Availabili
         </div>
 
         <DayPicker
-          aria-label="Seleziona il periodo di soggiorno"
+          aria-label={t("selectRange")}
           mode="range"
           selected={value}
           month={month}
@@ -107,7 +119,7 @@ export function AvailabilityRangePicker({ value, onChange, onClear }: Availabili
             }
           }}
           disabled={{ before: startOfToday() }}
-          locale={it}
+          locale={rdpLocale}
           numberOfMonths={1}
           hideNavigation
           showOutsideDays
@@ -122,13 +134,13 @@ export function AvailabilityRangePicker({ value, onChange, onClear }: Availabili
 
       <div className="border-t border-stone/12 bg-white/58 px-4 py-4 sm:px-5">
         <div className="grid gap-3 sm:grid-cols-3">
-          <RangeSummary label="Arrivo" value={formatSummaryDate(value?.from)} />
-          <RangeSummary label="Partenza" value={formatSummaryDate(value?.to)} />
-          <RangeSummary label="Notti" value={nights === null ? "—" : formatNights(nights)} />
+          <RangeSummary label={t("arrival")} value={formatSummaryDate(value?.from, locale, t)} />
+          <RangeSummary label={t("departure")} value={formatSummaryDate(value?.to, locale, t)} />
+          <RangeSummary label={t("nightsLabel")} value={nights === null ? "—" : formatNights(nights, t)} />
         </div>
 
         <p className="mt-3 text-xs leading-6 text-ink/58">
-          Il picker è pensato per un uso rapido: un click per entrare, un click per uscire.
+          {t("pickerHint")}
         </p>
       </div>
     </section>
@@ -144,38 +156,41 @@ function RangeSummary({ label, value }: { label: string; value: string }) {
   );
 }
 
-function formatSummaryDate(date: Date | undefined) {
+function formatSummaryDate(date: Date | undefined, locale: string, t: ReturnType<typeof useTranslations<"contatti.availability.checker">>) {
   if (!date) {
-    return "Seleziona";
+    return t("selectDate");
   }
 
-  return new Intl.DateTimeFormat("it-IT", {
+  return new Intl.DateTimeFormat(locale, {
     weekday: "short",
     day: "2-digit",
     month: "short",
   }).format(date);
 }
 
-function formatNights(nights: number) {
-  return nights === 1 ? "1 notte" : `${nights} notti`;
+function formatNights(nights: number, t: ReturnType<typeof useTranslations<"contatti.availability.checker">>) {
+  if (nights === 1) return t("oneNight");
+  return t("nightsCount", { count: nights });
 }
 
-function differenceInDays(start: Date, end: Date) {
-  const startUtc = Date.UTC(start.getFullYear(), start.getMonth(), start.getDate());
-  const endUtc = Date.UTC(end.getFullYear(), end.getMonth(), end.getDate());
-  return Math.max(0, Math.round((endUtc - startUtc) / 86400000));
-}
-
-function addMonths(date: Date, amount: number) {
-  return new Date(date.getFullYear(), date.getMonth() + amount, 1);
-}
-
-function startOfMonth(date: Date) {
+function startOfMonth(date: Date): Date {
   return new Date(date.getFullYear(), date.getMonth(), 1);
 }
 
-function startOfToday() {
-  const today = new Date();
-  today.setHours(0, 0, 0, 0);
-  return today;
+function addMonths(date: Date, amount: number): Date {
+  const result = new Date(date);
+  result.setMonth(result.getMonth() + amount);
+  return result;
+}
+
+function differenceInDays(from: Date, to: Date): number {
+  const msPerDay = 1000 * 60 * 60 * 24;
+  const utcFrom = Date.UTC(from.getFullYear(), from.getMonth(), from.getDate());
+  const utcTo = Date.UTC(to.getFullYear(), to.getMonth(), to.getDate());
+  return Math.round((utcTo - utcFrom) / msPerDay);
+}
+
+function startOfToday(): Date {
+  const now = new Date();
+  return new Date(now.getFullYear(), now.getMonth(), now.getDate());
 }

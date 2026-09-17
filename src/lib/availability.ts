@@ -120,7 +120,12 @@ export function isKnownAvailabilityStructure(propertySlug: string) {
   return availabilityStructureMenuOptions.some((option) => option.propertySlug === propertySlug);
 }
 
-export async function searchAvailabilityByProperty(propertySlug: string, checkIn: string, checkOut: string) {
+export async function searchAvailabilityByProperty(
+  propertySlug: string,
+  checkIn: string,
+  checkOut: string,
+  overrides?: Record<string, string>,
+) {
   const dateValidation = validateAvailabilityDates(checkIn, checkOut);
 
   if (!dateValidation.valid) {
@@ -141,7 +146,7 @@ export async function searchAvailabilityByProperty(propertySlug: string, checkIn
   }
 
   const selectedPropertyName = isAllProperties ? ALL_PROPERTIES_LABEL : property!.name;
-  const feeds = isAllProperties ? getAllFeeds() : getFeedsForProperty(propertySlug);
+  const feeds = isAllProperties ? getAllFeeds(overrides) : getFeedsForProperty(propertySlug, overrides);
 
   if (feeds.length === 0) {
     return {

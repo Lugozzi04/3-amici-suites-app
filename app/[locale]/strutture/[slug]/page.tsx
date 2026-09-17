@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { redirect } from "next/navigation";
+import { setRequestLocale, getTranslations } from "next-intl/server";
 import { Container } from "@/components/container";
 import { SectionHeading } from "@/components/section-heading";
 import { ImageFrame } from "@/components/image-frame";
@@ -15,13 +16,15 @@ export function generateStaticParams() {
 export async function generateMetadata({
   params,
 }: {
-  params: Promise<{ slug: string }>;
+  params: Promise<{ locale: string; slug: string }>;
 }): Promise<Metadata> {
-  const { slug } = await params;
+  const { locale, slug } = await params;
+  setRequestLocale(locale);
   const property = getPropertyBySlug(slug);
 
   if (!property) {
-    return { title: "Struttura non trovata | 3 Amici Suites" };
+    const t = await getTranslations({ locale, namespace: "strutture" });
+    return { title: `${t("detail.nonTrovata")} | 3 Amici Suites` };
   }
 
   return {
@@ -33,14 +36,18 @@ export async function generateMetadata({
 export default async function PropertyDetailPage({
   params,
 }: {
-  params: Promise<{ slug: string }>;
+  params: Promise<{ locale: string; slug: string }>;
 }) {
-  const { slug } = await params;
+  const { locale, slug } = await params;
+  setRequestLocale(locale);
   const property = getPropertyBySlug(slug);
 
   if (!property) {
-    redirect("/strutture");
+    redirect(`/${locale}/strutture`);
   }
+
+  const t = await getTranslations("strutture");
+  const tc = await getTranslations("common");
 
   return (
     <article className="py-16 sm:py-20 lg:py-24 pb-32 lg:pb-24" data-reveal>
@@ -60,31 +67,28 @@ export default async function PropertyDetailPage({
                   <p className="text-sm font-medium text-ink">{property.ratingLabel}</p>
                   <p className="text-xs uppercase tracking-[0.22em] text-earth">{property.reviewCountLabel}</p>
                 </div>
-                <p className="mt-2 text-[11px] leading-5 text-ink/58">
-                  Dati recensioni e punteggi: snapshot Booking, aggiornabili manualmente.
-                </p>
               </div>
 
               <p className="max-w-2xl text-sm leading-7 text-ink/68">{property.address}</p>
 
               <div className="flex flex-wrap gap-3">
-                <ContactButton propertySlug={property.slug}>Prenota subito</ContactButton>
+                <ContactButton propertySlug={property.slug}>{tc("prenotaSubito")}</ContactButton>
                 <BookingButton name={property.name} href={property.bookingUrl} context="detail-hero">
-                  Prenota su Booking
+                  {tc("prenotaBooking")}
                 </BookingButton>
                 {property.reviewsUrl ? (
                   <BookingReviewsLink name={property.name} href={property.reviewsUrl} context="detail-hero">
-                    Leggi recensioni su Booking
+                    {tc("leggiRecensioni")}
                   </BookingReviewsLink>
                 ) : null}
               </div>
 
               <div className="grid gap-4 sm:grid-cols-3" data-stagger>
-                <InfoCard label="Ideale per" value={property.bestFor ?? "soggiorni flessibili"} />
-                <InfoCard label="Posizione" value={property.locationNote} />
+                <InfoCard label={t("detail.idealePer")} value={property.bestFor ?? t("compareFallbackBestFor")} />
+                <InfoCard label={t("detail.posizione")} value={property.locationNote} />
                 <InfoCard
-                  label="Nota fonte"
-                  value={property.sourceNote ?? "Snapshot Booking aggiornabile manualmente."}
+                  label={t("detail.notaFonte")}
+                  value={property.sourceNote ?? t("compareFallbackSourceNote")}
                 />
               </div>
             </div>
@@ -92,7 +96,7 @@ export default async function PropertyDetailPage({
             <div className="relative">
               <ImageFrame src={property.image} alt={property.name} priority className="aspect-[4/5] shadow-lift" />
               <div className="absolute -bottom-6 left-6 right-6 rounded-[1.5rem] border border-white/55 bg-white/78 p-5 shadow-soft backdrop-blur">
-                <p className="text-xs uppercase tracking-[0.28em] text-earth">Badge principali</p>
+                <p className="text-xs uppercase tracking-[0.28em] text-earth">{t("detail.badgePrincipali")}</p>
                 <div className="mt-3 flex flex-wrap gap-2">
                   {property.badges.slice(0, 4).map((badge) => (
                     <span key={badge} className="rounded-full bg-paper px-3 py-1 text-xs text-ink/72">
@@ -107,11 +111,11 @@ export default async function PropertyDetailPage({
           <section className="mt-8 grid gap-5" data-reveal>
             <div className="flex flex-wrap items-end justify-between gap-3">
               <div>
-                <p className="text-xs uppercase tracking-[0.3em] text-earth">Gallery dinamica</p>
-                <h2 className="mt-2 font-serif text-3xl text-ink sm:text-4xl">Scatti reali in rotazione.</h2>
+                <p className="text-xs uppercase tracking-[0.3em] text-earth">{t("detail.galleryDinamica")}</p>
+                <h2 className="mt-2 font-serif text-3xl text-ink sm:text-4xl">{t("detail.galleryTitle")}</h2>
               </div>
               <p className="max-w-xl text-sm leading-7 text-ink/68">
-                La gallery pesca da un pool locale di immagini curate e cambia automaticamente dopo alcuni secondi.
+                {t("detail.galleryNote")}
               </p>
             </div>
 
@@ -121,9 +125,9 @@ export default async function PropertyDetailPage({
           <section className="grid gap-6 lg:grid-cols-[1fr_0.78fr]" data-reveal>
             <div className="rounded-[2rem] border border-white/60 bg-[#efe4d6]/80 p-8 shadow-soft backdrop-blur">
               <SectionHeading
-                eyebrow="Dettagli"
-                title="Una scheda chiara, utile e pronta a convertire."
-                description="Le informazioni essenziali sono distillate in modo leggibile, senza sovraccarico visivo."
+                eyebrow={t("detail.dettagli")}
+                title={t("detail.dettagliTitle")}
+                description={t("detail.dettagliDescription")}
               />
               <div className="mt-8 grid gap-4 sm:grid-cols-2" data-stagger>
                 {property.badges.map((badge) => (
@@ -135,48 +139,44 @@ export default async function PropertyDetailPage({
             </div>
 
             <div className="rounded-[2rem] border border-white/60 bg-white/75 p-6 shadow-soft backdrop-blur">
-              <p className="text-xs uppercase tracking-[0.3em] text-earth">Contesto</p>
+              <p className="text-xs uppercase tracking-[0.3em] text-earth">{t("detail.contesto")}</p>
               <div className="mt-5 grid gap-4">
-                <InfoRow label="Tipo" value={property.type} />
-                <InfoRow label="Indirizzo" value={property.address} />
-                <InfoRow label="Rating" value={property.ratingLabel} />
-                <InfoRow label="Recensioni" value={property.reviewCountLabel} />
-              </div>
-              <div className="mt-6 rounded-[1.4rem] border border-stone/15 bg-[#f8f3eb] p-4 text-sm leading-7 text-ink/70">
-                Dati recensioni e punteggi: snapshot Booking, aggiornabili manualmente.
+                <InfoRow label={t("detail.tipo")} value={property.type} />
+                <InfoRow label={t("detail.indirizzo")} value={property.address} />
+                <InfoRow label={t("detail.rating")} value={property.ratingLabel} />
+                <InfoRow label={t("detail.recensioni")} value={property.reviewCountLabel} />
               </div>
             </div>
           </section>
 
           <section className="grid gap-6 lg:grid-cols-[1fr_0.78fr]" data-reveal>
             <div className="rounded-[2rem] border border-ink/10 bg-ink p-8 text-paper shadow-soft float-on-hover">
-              <p className="text-xs uppercase tracking-[0.3em] text-sand">Prenotazione</p>
-              <h2 className="mt-4 font-serif text-4xl leading-tight">Contatto diretto o piattaforma esterna.</h2>
+              <p className="text-xs uppercase tracking-[0.3em] text-sand">{t("detail.prenotazione")}</p>
+              <h2 className="mt-4 font-serif text-4xl leading-tight">{t("detail.prenotazioneTitle")}</h2>
               <p className="mt-4 max-w-2xl text-paper/78">
-                Se vuoi una risposta rapida o una conferma più personale, scrivici. In alternativa puoi
-                proseguire sulla scheda Booking della struttura.
+                {t("detail.prenotazioneDescription")}
               </p>
               <div className="mt-8 flex flex-wrap gap-3">
-                <ContactButton propertySlug={property.slug}>Prenota subito</ContactButton>
+                <ContactButton propertySlug={property.slug}>{tc("prenotaSubito")}</ContactButton>
                 <BookingButton name={property.name} href={property.bookingUrl} context="detail-footer">
-                  Prenota su Booking
+                  {tc("prenotaBooking")}
                 </BookingButton>
                 {property.reviewsUrl ? (
                   <BookingReviewsLink name={property.name} href={property.reviewsUrl} context="detail-footer">
-                    Leggi recensioni su Booking
+                    {tc("leggiRecensioni")}
                   </BookingReviewsLink>
                 ) : null}
               </div>
             </div>
 
             <div className="rounded-[2rem] border border-white/60 bg-white/72 p-6 shadow-soft backdrop-blur">
-              <p className="text-xs uppercase tracking-[0.3em] text-earth">Sintesi</p>
+              <p className="text-xs uppercase tracking-[0.3em] text-earth">{t("detail.sintesi")}</p>
               <div className="mt-5 grid gap-4">
-                <InfoRow label="Ideale per" value={property.bestFor ?? "soggiorni flessibili"} />
-                <InfoRow label="Posizione" value={property.locationNote} />
+                <InfoRow label={t("detail.idealePer")} value={property.bestFor ?? t("compareFallbackBestFor")} />
+                <InfoRow label={t("detail.posizione")} value={property.locationNote} />
                 <InfoRow
-                  label="Nota fonte"
-                  value={property.sourceNote ?? "Snapshot Booking aggiornabile manualmente."}
+                  label={t("detail.notaFonte")}
+                  value={property.sourceNote ?? t("compareFallbackSourceNote")}
                 />
               </div>
             </div>

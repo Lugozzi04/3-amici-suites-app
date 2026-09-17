@@ -2,7 +2,7 @@ import { NextResponse } from "next/server";
 import * as fs from "node:fs";
 import * as path from "node:path";
 
-import { availabilityFeeds, availabilityStructureMenuOptions } from "@/src/data/availabilityFeeds";
+import { baseFeeds, availabilityStructureMenuOptions } from "@/src/data/availabilityFeeds";
 import { getBookingPropertyBySlug } from "@/src/data/bookingLinks";
 
 export const runtime = "nodejs";
@@ -10,17 +10,37 @@ export const runtime = "nodejs";
 const OVERRIDES_PATH = process.env.ICAL_OVERRIDES_PATH
   ?? path.join(process.cwd(), "src/data/ical-overrides.json");
 
+function loadOverrides(): Record<string, string> {
+  try {
+    if (fs.existsSync(OVERRIDES_PATH)) {
+      const raw = fs.readFileSync(OVERRIDES_PATH, "utf-8");
+      return JSON.parse(raw);
+    }
+  } catch {}
+  return {};
+}
+
+function getFreshFeeds(): typeof baseFeeds {
+  const overrides = loadOverrides();
+  return baseFeeds.map((feed) => {
+    const overrideUrl = overrides[feed.roomSlug];
+    return overrideUrl ? { ...feed, icalUrl: overrideUrl } : feed;
+  });
+}
+
 /** GET — returns all feeds with current URLs and their status */
 export async function GET(request: Request) {
   if (!isAuthorized(request)) {
     return NextResponse.json({ message: "Non autorizzato" }, { status: 401 });
   }
 
-  const feeds = availabilityStructureMenuOptions
+  const feeds = getFreshFeeds();
+
+  const data = availabilityStructureMenuOptions
     .filter((opt) => opt.propertySlug !== "all")
     .map((opt) => {
       const property = getBookingPropertyBySlug(opt.propertySlug);
-      const propertyFeeds = availabilityFeeds.filter((f) => f.propertySlug === opt.propertySlug);
+      const propertyFeeds = feeds.filter((f) => f.propertySlug === opt.propertySlug);
       return {
         propertySlug: opt.propertySlug,
         propertyName: opt.propertyName,
@@ -33,7 +53,10 @@ export async function GET(request: Request) {
       };
     });
 
-  return NextResponse.json({ feeds });
+  return NextResponse.json(
+    { feeds: data },
+    { headers: { "Cache-Control": "no-store, no-cache, must-revalidate" } },
+  );
 }
 
 /** POST — saves iCal URL overrides */
@@ -52,7 +75,7 @@ export async function POST(request: Request) {
   for (const [roomSlug, url] of Object.entries(body)) {
     if (typeof url !== "string" || url.trim() === "") continue;
     const trimmed = url.trim();
-    if (!trimmed.startsWith("https://ical.booking.com/v1/export/t/") || !trimmed.endsWith(".ics")) {
+    if (!trimmed.startsWith("https://ical.booking.com/")) {
       return NextResponse.json(
         { message: `URL non valido per ${roomSlug}: deve essere un link di esportazione Booking` },
         { status: 400 },
@@ -72,7 +95,7 @@ export async function POST(request: Request) {
 
   const count = Object.keys(validOverrides).length;
   return NextResponse.json({
-    message: `${count} link iCal aggiornati con successo. Riavvia il server per applicare le modifiche.`,
+    message: `${count} link iCal aggiornati con successo.`,
     count,
   });
 }

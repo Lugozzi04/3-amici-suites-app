@@ -1,0 +1,10 @@
+{
+  "appartamento-carlo": "https://ical.booking.com/v1/export?t=0bd089a4-00e0-4400-ac58-3e1713ad1e9b",
+  "appartamento-dario": "https://ical.booking.com/v1/export?t=4cd975e5-37bf-412e-8352-b6fa1818179d",
+  "appartamento-pietor": "https://ical.booking.com/v1/export?t=b1cf4482-536a-4815-8c30-151016125870",
+  "unita-principale": "https://ical.booking.com/v1/export?t=ed6588e5-c6d1-48ad-82b0-dbeee77d468c",
+  "arco": "https://ical.booking.com/v1/export?t=c65e1078-cbd5-4f36-899b-50facacb6d43",
+  "castello": "https://ical.booking.com/v1/export?t=2039741e-777a-4bcd-9264-8498efc6362c",
+  "torre": "https://ical.booking.com/v1/export?t=ba739154-6edd-48ea-bfcc-498547d7d7c4",
+  "arena-unita": "https://ical.booking.com/v1/export?t=d88cc366-d118-4b05-a89a-1571adc290b7"
+}

@@ -1,11 +1,13 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { useTranslations } from "next-intl";
 import { AvailabilityChecker } from "@/components/availability-checker";
 
 type HealthStatus = "loading" | "healthy" | "broken";
 
 export function AvailabilitySection({ initialPropertySlug }: { initialPropertySlug?: string }) {
+  const t = useTranslations("contatti");
   const [health, setHealth] = useState<HealthStatus>("loading");
 
   useEffect(() => {
@@ -21,7 +23,6 @@ export function AvailabilitySection({ initialPropertySlug }: { initialPropertySl
         }
       } catch {
         if (!cancelled) {
-          // If we can't check, assume healthy (don't hide the checker on network errors)
           setHealth("healthy");
         }
       }
@@ -52,35 +53,31 @@ export function AvailabilitySection({ initialPropertySlug }: { initialPropertySl
     return (
       <section className="overflow-hidden rounded-[2rem] border border-amber-200/60 bg-amber-50/90 shadow-soft backdrop-blur">
         <div className="border-b border-amber-200/50 bg-gradient-to-b from-amber-50/95 to-[#faf5ed] px-6 py-5">
-          <p className="text-xs uppercase tracking-[0.3em] text-[#9b6a2f]">Disponibilità</p>
+          <p className="text-xs uppercase tracking-[0.3em] text-[#9b6a2f]">{t("availability.title")}</p>
           <h3 className="mt-3 font-serif text-[1.9rem] leading-none text-ink sm:text-[2.1rem]">
-            Calendari in aggiornamento
+            {t("availability.updatingTitle")}
           </h3>
           <p className="mt-3 max-w-[36rem] text-sm leading-7 text-ink/68">
-            I calendari Booking sono in fase di aggiornamento. La verifica della disponibilità in tempo reale
-            tornerà attiva a breve.
+            {t("availability.updatingDescription")}
           </p>
         </div>
         <div className="space-y-4 px-6 py-6">
           <div className="rounded-[1.4rem] border border-amber-200/40 bg-white/80 p-5 text-sm leading-7 text-ink/68">
-            <p className="font-medium text-[#9b6a2f]">⚠️ Cosa è successo?</p>
+            <p className="font-medium text-[#9b6a2f]">{t("availability.whatHappened")}</p>
             <p className="mt-2">
-              I link di sincronizzazione con Booking.com devono essere rinnovati periodicamente.
-              Il nostro team è già stato avvisato e sta aggiornando i collegamenti.
+              {t("availability.whatHappenedDesc")}
             </p>
             <p className="mt-3">
-              Nel frattempo puoi contattarci direttamente tramite il modulo qui sotto per verificare
-              la disponibilità delle strutture.
+              {t("availability.whatHappenedNote")}
             </p>
           </div>
           <p className="text-xs leading-6 text-ink/50">
-            La verifica automatica tornerà attiva automaticamente una volta aggiornati i calendari.
+            {t("availability.autoRestore")}
           </p>
         </div>
       </section>
     );
   }
 
-  // Healthy — show the full availability checker
   return <AvailabilityChecker initialPropertySlug={initialPropertySlug} />;
 }

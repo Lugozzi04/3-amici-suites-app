@@ -1,5 +1,7 @@
 import { NextResponse } from "next/server";
-import { availabilityFeeds } from "@/src/data/availabilityFeeds";
+import * as fs from "node:fs";
+import * as path from "node:path";
+import { baseFeeds } from "@/src/data/availabilityFeeds";
 
 export const runtime = "nodejs";
 
@@ -20,13 +22,35 @@ type HealthResult = {
   feeds: FeedHealth[];
 };
 
+const OVERRIDES_PATH = process.env.ICAL_OVERRIDES_PATH
+  ?? path.join(process.cwd(), "src/data/ical-overrides.json");
+
+function loadOverrides(): Record<string, string> {
+  try {
+    if (fs.existsSync(OVERRIDES_PATH)) {
+      const raw = fs.readFileSync(OVERRIDES_PATH, "utf-8");
+      return JSON.parse(raw);
+    }
+  } catch {}
+  return {};
+}
+
+function getFreshFeeds() {
+  const overrides = loadOverrides();
+  return baseFeeds.map((feed) => {
+    const overrideUrl = overrides[feed.roomSlug];
+    return overrideUrl ? { ...feed, icalUrl: overrideUrl } : feed;
+  });
+}
+
 export async function GET() {
   const controller = new AbortController();
   const timeoutId = setTimeout(() => controller.abort(), 8_000);
 
   try {
+    const feeds = getFreshFeeds();
     const results = await Promise.all(
-      availabilityFeeds.map(async (feed): Promise<FeedHealth> => {
+      feeds.map(async (feed): Promise<FeedHealth> => {
         try {
           const res = await fetch(feed.icalUrl, {
             headers: { Accept: "text/calendar, text/plain;q=0.9, */*;q=0.8" },
@@ -84,19 +108,19 @@ export async function GET() {
 
     return NextResponse.json(health, {
       headers: {
-        // Cache for 5 minutes on CDN/browser
-        "Cache-Control": "public, max-age=300, s-maxage=300",
+        "Cache-Control": "no-store, no-cache, must-revalidate",
       },
     });
   } catch {
     clearTimeout(timeoutId);
+    const feeds = getFreshFeeds();
     return NextResponse.json(
       {
         anyValid: false,
         allInvalid: true,
-        total: availabilityFeeds.length,
+        total: feeds.length,
         valid: 0,
-        invalid: availabilityFeeds.length,
+        invalid: feeds.length,
         feeds: [],
       },
       { status: 200 },

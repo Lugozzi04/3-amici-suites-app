@@ -1,9 +1,6 @@
 import type { Metadata } from "next";
 import { Cormorant_Garamond, Inter } from "next/font/google";
 import "./globals.css";
-import { SiteHeader } from "@/components/site-header";
-import { SiteFooter } from "@/components/site-footer";
-import { ScrollEffects } from "@/components/scroll-effects";
 import { basePath } from "@/lib/base-path";
 import { siteMeta } from "@/lib/site";
 
@@ -21,22 +18,19 @@ const cormorant = Cormorant_Garamond({
 export const metadata: Metadata = {
   title: siteMeta.title,
   description: siteMeta.description,
-  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL ?? `https://3amicisuites.it${basePath}`),
+  metadataBase: new URL(
+    process.env.NEXT_PUBLIC_SITE_URL ?? `https://3amicisuites.it${basePath}`,
+  ),
 };
 
 export default function RootLayout({
   children,
-}: Readonly<{
+}: {
   children: React.ReactNode;
-}>) {
+}) {
   return (
     <html lang="it" className={`${inter.variable} ${cormorant.variable}`}>
-      <body className="page-shell">
-        <ScrollEffects />
-        <SiteHeader />
-        <main>{children}</main>
-        <SiteFooter />
-      </body>
+      <body className="page-shell">{children}</body>
     </html>
   );
 }

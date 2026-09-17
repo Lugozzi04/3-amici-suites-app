@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useMemo } from "react";
+import { useTranslations } from "next-intl";
 import L from "leaflet";
 import { MapContainer, Marker, Popup, TileLayer, useMap } from "react-leaflet";
 
@@ -27,6 +28,7 @@ const markerIcon = L.divIcon({
 });
 
 export function VeronaMap() {
+  const t = useTranslations("contatti");
   const bounds = useMemo(
     () => propertiesMap.map((property) => [property.lat, property.lng] as [number, number]),
     [],
@@ -35,9 +37,9 @@ export function VeronaMap() {
   return (
     <div className="overflow-hidden rounded-[2rem] border border-white/60 bg-white/72 shadow-soft backdrop-blur">
       <div className="border-b border-stone/15 px-6 py-4">
-        <p className="text-xs uppercase tracking-[0.3em] text-earth">Mappa</p>
+        <p className="text-xs uppercase tracking-[0.3em] text-earth">{t("map.title")}</p>
         <p className="mt-2 text-sm leading-7 text-ink/70">
-          Quattro strutture a Verona, mostrate su una mappa interattiva con un look sobrio e premium.
+          {t("map.description")}
         </p>
       </div>
 
@@ -121,10 +123,11 @@ function PopupCard({
   address: string;
   href: string;
 }) {
+  const t = useTranslations("contatti");
   return (
     <div className="min-w-[200px] max-w-[240px] space-y-3 p-0.5">
       <div>
-        <p className="text-[10px] uppercase tracking-[0.24em] text-earth">Struttura</p>
+        <p className="text-[10px] uppercase tracking-[0.24em] text-earth">{t("map.structure")}</p>
         <p className="mt-1 text-sm font-semibold text-ink">{name}</p>
         <p className="mt-1 text-xs leading-5 text-ink/65">{address}</p>
       </div>
@@ -134,7 +137,7 @@ function PopupCard({
         rel="noopener noreferrer"
         className="inline-flex rounded-full bg-[#b7352d] px-3.5 py-2 text-[11px] uppercase tracking-[0.2em] text-paper transition hover:bg-[#a62d26]"
       >
-        Apri su Google Maps
+        {t("map.openInGoogleMaps")}
       </a>
     </div>
   );

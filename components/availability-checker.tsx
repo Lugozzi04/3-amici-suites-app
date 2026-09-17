@@ -2,8 +2,9 @@
 
 import { useActionState, useState } from "react";
 import { type DateRange } from "react-day-picker";
+import { useTranslations, useLocale } from "next-intl";
 
-import { checkAvailabilityAction } from "@/app/contatti/actions";
+import { checkAvailabilityAction } from "@/lib/contatti-actions";
 import { BookingButton } from "@/components/booking-cta";
 import { AvailabilityRangePicker } from "@/components/availability-range-picker";
 import { Button } from "@/components/button";
@@ -27,15 +28,27 @@ type AvailabilityCheckerState =
   | { kind: "error"; message: string; submitted: AvailabilitySubmission }
   | { kind: "success"; data: AvailabilitySearchResult; submitted: AvailabilitySubmission };
 
+type StructureHealth = {
+  propertySlug: string;
+  propertyName: string;
+  hasValidFeed: boolean;
+};
+
 type AvailabilityCheckerProps = {
   initialPropertySlug?: string;
   onRequestContactMessage?: (message: string) => void;
+  structureHealth?: StructureHealth[];
 };
 
 export function AvailabilityChecker({
   initialPropertySlug,
   onRequestContactMessage,
+  structureHealth = [],
 }: AvailabilityCheckerProps) {
+  const t = useTranslations("contatti.availability.checker");
+  const locale = useLocale();
+  const validSlugs = new Set(structureHealth.filter(s => s.hasValidFeed).map(s => s.propertySlug));
+  const invalidStructures = structureHealth.filter(s => !s.hasValidFeed);
   const initialStructureSlug = availabilityStructureMenuOptions.some(
     (option) => option.propertySlug === initialPropertySlug,
   )
@@ -73,28 +86,42 @@ export function AvailabilityChecker({
       data-reveal
     >
       <div className="border-b border-stone/15 bg-gradient-to-b from-white/95 to-[#f8f2e9] px-6 py-5">
-        <p className="text-xs uppercase tracking-[0.3em] text-earth">Verifica disponibilità</p>
+        <p className="text-xs uppercase tracking-[0.3em] text-earth">{t("eyebrow")}</p>
         <h3 className="mt-3 font-serif text-[1.9rem] leading-none text-ink sm:text-[2.1rem]">
-          Verifica la disponibilità
+          {t("heading")}
         </h3>
         <p className="mt-3 max-w-[36rem] text-sm leading-7 text-ink/68">
-          Scegli la struttura e le date: controlliamo i calendari Booking collegati e ti mostriamo solo le
-          soluzioni realmente disponibili.
+          {t("description")}
         </p>
       </div>
 
       <div className="space-y-5 px-6 py-6">
+        {invalidStructures.length > 0 ? (
+          <div className="rounded-[1.4rem] border border-amber-200/40 bg-amber-50/60 p-4 text-sm leading-7 text-ink/68">
+            <p className="font-medium text-[#9b6a2f]">
+              {t("outdatedFeedsTitle")}
+            </p>
+            <p className="mt-1">
+              {invalidStructures.map((s) => s.propertyName).join(", ")}
+            </p>
+            <p className="mt-2 text-xs text-ink/50">
+              {t("outdatedFeedsNote")}
+            </p>
+          </div>
+        ) : null}
         <form className="grid gap-4" action={formAction}>
           <div className="grid gap-4">
             <label className="grid gap-2">
-              <span className="text-[12px] uppercase tracking-[0.22em] text-earth">Struttura</span>
+              <span className="text-[12px] uppercase tracking-[0.22em] text-earth">{t("structureLabel")}</span>
               <select
                 name="propertySlug"
                 value={propertySlug}
                 onChange={(event) => setPropertySlug(event.target.value)}
                 className="h-12 rounded-2xl border border-stone/20 bg-paper/70 px-4 text-sm text-ink outline-none transition focus:border-olive focus:bg-white"
               >
-                {availabilityStructureMenuOptions.map((option) => (
+                {availabilityStructureMenuOptions
+                  .filter((option) => option.propertySlug === ALL_AVAILABILITY_STRUCTURE_SLUG || validSlugs.has(option.propertySlug))
+                  .map((option) => (
                   <option key={option.propertySlug} value={option.propertySlug}>
                     {option.propertyName}
                   </option>
@@ -110,18 +137,13 @@ export function AvailabilityChecker({
 
             <div className="flex justify-end">
               <Button type="submit" disabled={!canSubmit} className="h-12 px-6">
-                {isPending ? "Verifica in corso..." : "Verifica"}
+                {isPending ? t("checking") : t("verify")}
               </Button>
             </div>
           </div>
 
           <input type="hidden" name="checkIn" value={checkIn} />
           <input type="hidden" name="checkOut" value={checkOut} />
-
-          <p className="text-xs leading-6 text-ink/58">
-            Disponibilità online attiva per alcune strutture. Se la struttura selezionata non ha ancora un feed
-            iCal, ti mostriamo un messaggio chiaro invece di un errore.
-          </p>
         </form>
 
         {activeError ? (
@@ -135,7 +157,7 @@ export function AvailabilityChecker({
             <div className="rounded-[1.6rem] border border-stone/15 bg-[#f7f1e8] px-4 py-4">
               <div className="flex flex-wrap items-center justify-between gap-3">
                 <div>
-                  <p className="text-[11px] uppercase tracking-[0.22em] text-earth">Risultato</p>
+                  <p className="text-[11px] uppercase tracking-[0.22em] text-earth">{t("result")}</p>
                   <h4 className="mt-1 text-lg font-medium text-ink">{result.propertyName}</h4>
                 </div>
                 <span className="rounded-full border border-olive/20 bg-olive/10 px-3 py-1 text-xs font-medium text-olive">
@@ -143,7 +165,7 @@ export function AvailabilityChecker({
                 </span>
               </div>
               <p className="mt-3 text-sm leading-7 text-ink/66">
-                Dal {formatDate(result.checkIn)} al {formatDate(result.checkOut)}
+                {t("dateFrom")} {formatDate(result.checkIn, locale)} {t("dateTo")} {formatDate(result.checkOut, locale)}
               </p>
               {result.warning ? <p className="mt-2 text-sm text-[#9b6a2f]">{result.warning}</p> : null}
               {result.message ? <p className="mt-2 text-sm text-ink/68">{result.message}</p> : null}
@@ -152,8 +174,8 @@ export function AvailabilityChecker({
             {visibleRooms.length === 0 ? (
               <div className="rounded-[1.6rem] border border-stone/15 bg-white/80 p-5 text-sm leading-7 text-ink/72">
                 {result.summaryStatus === "error"
-                  ? "Non è stato possibile verificare la disponibilità per questa struttura. I calendari Booking potrebbero non essere più sincronizzati. Contattaci per assistenza."
-                  : "La disponibilità online per questa struttura non è ancora disponibile. Contattaci per maggiori informazioni."}
+                  ? t("verificationError")
+                  : t("availabilityUnavailable")}
               </div>
             ) : (
               <div className="grid gap-4">
@@ -168,7 +190,7 @@ export function AvailabilityChecker({
                   ))}
                 {availableRooms.length > 0 ? (
                   <p className="text-xs text-olive">
-                    {availableRooms.length} soluzioni disponibili per le date selezionate.
+                    {t("availableSolutions", { count: availableRooms.length })}
                   </p>
                 ) : null}
               </div>
@@ -193,6 +215,7 @@ function AvailabilityResultCard({
   checkOut: string;
   onRequestContactMessage?: (message: string) => void;
 }) {
+  const t = useTranslations("contatti.availability.checker");
   const bookingProperty = getBookingPropertyBySlug(room.propertySlug);
   const bookingUrl = room.bookingUrl ?? bookingProperty?.bookingUrl ?? "#contatti-form";
   const inquiryMessage = buildAvailabilityInquiryMessage({
@@ -209,9 +232,9 @@ function AvailabilityResultCard({
   }[room.status];
 
   const statusLabel = {
-    available: "Disponibile",
-    unavailable: "Non disponibile",
-    unverifiable: "Temporaneamente non verificabile",
+    available: t("statusAvailable"),
+    unavailable: t("statusUnavailable"),
+    unverifiable: t("statusUnverifiable"),
   }[room.status];
 
   return (
@@ -233,11 +256,11 @@ function AvailabilityResultCard({
             onClick={() => onRequestContactMessage?.(inquiryMessage)}
             className="bg-ink text-paper shadow-soft hover:-translate-y-0.5 hover:bg-black"
           >
-            Prenota subito
+            {t("bookNow")}
           </Button>
           {bookingProperty ? (
             <BookingButton name={room.roomName} href={bookingUrl} context="availability-result-card">
-              Prenota su Booking
+              {t("bookOnBooking")}
             </BookingButton>
           ) : null}
         </div>
@@ -248,7 +271,7 @@ function AvailabilityResultCard({
             onClick={() => onRequestContactMessage?.(inquiryMessage)}
             className="bg-ink text-paper shadow-soft hover:-translate-y-0.5 hover:bg-black"
           >
-            Prenota subito
+            {t("bookNow")}
           </Button>
         </div>
       )}
@@ -380,9 +403,9 @@ function DebugField({
   );
 }
 
-function formatDate(value: string) {
+function formatDate(value: string, locale: string) {
   const date = new Date(`${value}T00:00:00.000Z`);
-  return new Intl.DateTimeFormat("it-IT", {
+  return new Intl.DateTimeFormat(locale, {
     day: "2-digit",
     month: "long",
     year: "numeric",

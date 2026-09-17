@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import { useLocale } from "next-intl";
 import { trackOutboundClick } from "@/lib/tracking";
 import { cn } from "@/lib/utils";
 import { buildContactHref } from "@/src/lib/contact-links";
@@ -71,6 +72,7 @@ export function ContactButton({
   className?: string;
   children: React.ReactNode;
 }) {
+  const locale = useLocale();
   const resolvedHref =
     href !== "/contatti"
       ? href
@@ -78,9 +80,14 @@ export function ContactButton({
         ? buildContactHref(propertySlug, { anchor: "#availability-checker" })
         : href;
 
+  // Prepend locale to internal paths
+  const localeHref = resolvedHref.startsWith("/")
+    ? `/${locale}${resolvedHref}`
+    : resolvedHref;
+
   return (
     <Link
-      href={resolvedHref}
+      href={localeHref}
       className={cn(
         baseButton,
         "bg-ink text-paper shadow-soft hover:-translate-y-0.5 hover:bg-black",

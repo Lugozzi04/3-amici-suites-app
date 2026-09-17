@@ -3,7 +3,7 @@
 import { useActionState, useState } from "react";
 import { type DateRange } from "react-day-picker";
 
-import { checkAvailabilityAction } from "@/app/contatti/actions";
+import { checkAvailabilityAction } from "@/lib/contatti-actions";
 import { BookingButton } from "@/components/booking-cta";
 import { AvailabilityRangePicker } from "@/components/availability-range-picker";
 import { Button } from "@/components/button";
